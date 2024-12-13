@@ -1,0 +1,33 @@
+#Addict {
+  header {
+    z-index: 1;
+    position: sticky;
+    top: 0;
+    padding: 0 100px;
+    width: 100%; height: 80px;
+    border: 1px solid #fff;
+    background-color: #fff;
+    display: flex;
+
+    a, button {
+      width: 90px; height: 100%;
+      font-size: 15px;
+      font-weight: 600;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+    }
+
+    > a:nth-child(1) {
+      padding-bottom: 4px;
+      width: fit-content; height: 100%;
+      aspect-ratio: 2 / 1;
+      font-size: 30px;
+      font-weight: 400;
+    }
+
+    > div {
+      position: relative;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+#PharagraphHomePage {
+	padding: 40px 0 100px;
+  gap: 100px;
+  display: flex;
+  flex-direction: column;
+
+  #banner {
+    height: 500px;
+    border: 1px solid red;
+  }
+
+  #slider {
+    height: 400px;
+    border: 1px solid red;
+  }
+}

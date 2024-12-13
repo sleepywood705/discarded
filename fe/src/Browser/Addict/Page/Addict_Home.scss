@@ -1,0 +1,66 @@
+#AddictHomePage {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+
+  > h2 {
+    padding: 40px 0;
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .wrap {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    > div {
+      width: 100%;
+      /* border: 1px solid #000; */
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      > div {
+        width: 100%;
+      }
+    }
+  }
+
+  > div:last-child {
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    display: grid;
+    place-items: center;
+
+    > img {
+      width: 100%; height: 100%;
+    }
+
+    > p {
+      position: absolute;
+      left: 50%; top: 25%;
+      transform: translate(-50%);
+      color: #fff;
+      font-size: 40px;
+    }
+
+    > a {
+      position: absolute;
+      left: 50%; top: 28%;
+      transform: translate(-50%);
+      padding: 8px 20px;
+      color: #fff;
+      font-size: 18px;
+      border: 1px solid #fff;
+      border-radius: 50px;
+      background-color: #000;
+
+      &:hover {
+        filter: invert(1);
+      }
+    }
+  }
+}

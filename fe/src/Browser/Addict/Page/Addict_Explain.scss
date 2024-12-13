@@ -1,0 +1,57 @@
+#AddictExplain {
+  z-index: 999;
+  position: absolute;
+  left: 0;
+  padding: 100px 480px;
+  width: 100%; height: 100%;
+  backdrop-filter: blur(15px);
+  background-color: rgba(0, 0, 0, 0.9);
+  gap: 60px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  // display: none;
+
+  > button {
+    position: absolute;
+    right: 40px; top: 40px;
+    width: 24px; aspect-ratio: 1;
+    background: url('data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' fill=\'white\' class=\'bi bi-x-circle-fill\' viewBox=\'0 0 16 16\'><path d=\'M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z\'/></svg>') center / contain no-repeat;
+    cursor: pointer;
+  }
+
+  > section {
+    color: #fff;
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+
+    > h2 {
+      position: relative;
+      padding-left: 8px;
+      border-left: 4px solid #fff;
+    }
+
+    > p {
+      padding-left: 8px;
+      line-height: 30px;
+    }
+
+    > ul {
+      padding-left: 20px;
+      list-style: disc;
+      gap: 10px;
+      display: flex;
+      flex-direction: column;
+      
+      li {
+        cursor: default;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1280px) {
+  #AddictExplain {
+    padding: 40px 100px;
+  }
+}

@@ -1,0 +1,8 @@
+#Portfolio {
+  .Container {
+    width: 100%; height: calc(100vh - 30px - 40px - 50px);
+    background-color: #fff;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+}

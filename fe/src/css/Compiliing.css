@@ -1,0 +1,1786 @@
+@charset "UTF-8";
+#Folder {
+  z-index: 1;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  transition: all 0.5s;
+}
+#Folder .Container {
+  width: 50vw;
+  height: 60vh;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+}
+#Folder .Container aside {
+  padding-top: 10px;
+  border-right: 1px solid #f2f2f2;
+}
+#Folder .Container aside .Favorites {
+  padding: 10px 20px;
+  font-size: 13px;
+  border-bottom: 1px solid #f2f2f2;
+  cursor: pointer;
+}
+#Folder .Container section {
+  padding: 16px;
+  background-color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: start;
+  align-content: flex-start;
+  /* 아이콘 컨테이너 */
+}
+#Folder .Container section .Icon {
+  position: relative;
+  width: 100px;
+  aspect-ratio: 1;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background-color: rgba(255, 255, 255, 0.09);
+  display: grid;
+  grid-template-rows: 7fr 3fr;
+  cursor: pointer;
+  /* 아이콘 영역 */
+  /* 아이콘 제목 영역 */
+}
+#Folder .Container section .Icon .Upper {
+  position: relative;
+  height: 100%;
+  text-align: center;
+  /* 아이콘 모양 */
+}
+#Folder .Container section .Icon .Upper .Inner {
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  transform: translate(-50%);
+  width: 46px;
+  aspect-ratio: 1;
+  color: #fff;
+  font-size: 12px;
+  line-height: 10px;
+  border-radius: 6px;
+  background-color: #000;
+  display: grid;
+  place-items: center;
+}
+#Folder .Container section .Icon .Lower {
+  padding: 4px;
+  font-size: 13px;
+  display: grid;
+  place-items: center;
+}
+#Folder .Container section .Icon:hover {
+  border: 1px solid #000;
+}
+
+@media screen and (max-width: 1280px) {
+  #Folder .Container {
+    width: 90vw;
+  }
+}
+#Iconset {
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%);
+  width: fit-content;
+  gap: 8px;
+  display: flex;
+}
+#Iconset .Icon {
+  position: relative;
+  width: 100px;
+  aspect-ratio: 1;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background-color: rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(10px);
+  display: grid;
+  grid-template-rows: 7fr 3fr;
+  cursor: pointer;
+}
+#Iconset .Icon .Upper {
+  position: relative;
+  height: 100%;
+  text-align: center;
+}
+#Iconset .Icon .Upper .Person {
+  position: absolute;
+  transform: translate(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #eee;
+  transition: all 0.3s ease;
+}
+#Iconset .Icon .Upper .Person.face {
+  left: 50%;
+  bottom: 34px;
+}
+#Iconset .Icon .Upper .Person.chest {
+  left: 50%;
+  bottom: 12px;
+}
+#Iconset .Icon .Upper.icon-portfolio:hover .Person.chest {
+  width: 36px;
+  height: 18px;
+  border-radius: 100% 100% 50% 50%;
+}
+#Iconset .Icon .Upper .Folder {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  transform: translate(-50%);
+  width: 54px;
+  height: 36px;
+  border-radius: 0 4px 4px 4px;
+  background-color: #eee;
+}
+#Iconset .Icon .Upper .Folder::before {
+  position: absolute;
+  left: 0;
+  top: -6px;
+  content: "";
+  width: 40%;
+  height: 6px;
+  background-color: #ddd;
+  border-radius: 4px 4px 0 0;
+}
+#Iconset .Icon .Upper .Content {
+  position: absolute;
+  left: 50%;
+  bottom: 17px;
+  transform: translate(-50%);
+  width: 44px;
+  height: 26px;
+  border-radius: 4px;
+  background-color: #eee;
+}
+#Iconset .Icon .Upper.icon-folder:hover .Folder {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+#Iconset .Icon .Upper .Graph {
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  transform: translate(-50%);
+  width: 50%;
+  aspect-ratio: 1;
+  background-color: #eee;
+  border-radius: 50% 0 50% 50%;
+}
+#Iconset .Icon .Upper .Graph::before {
+  position: absolute;
+  right: -1px;
+  top: 0;
+  content: "";
+  width: 50%;
+  aspect-ratio: 1;
+  background-color: rgb(23, 23, 23);
+}
+#Iconset .Icon .Upper .Graph .Piece {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50%;
+  height: calc(50% + 1px);
+  border-radius: 0 100% 0 0;
+  background-color: #eee;
+  transition: all 0.2s;
+}
+#Iconset .Icon .Upper.icon-graph:hover .Piece {
+  right: -6px;
+  top: -6px;
+  border: 1px solid #eee;
+  background-color: transparent;
+}
+#Iconset .Icon .Upper .Contact {
+  position: absolute;
+  width: 36px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  backdrop-filter: blur(10px);
+}
+#Iconset .Icon .Upper .Contact.circle-upper {
+  left: 50%;
+  bottom: 24px;
+  transform: translate(-75%);
+  z-index: 0;
+  background-color: #eee;
+}
+#Iconset .Icon .Upper .Contact.circle-lower {
+  left: 50%;
+  bottom: 4px;
+  transform: translate(-25%);
+  z-index: 1;
+  background-color: transparent;
+}
+#Iconset .Icon .Upper.icon-contact:hover .circle-upper {
+  z-index: 1;
+  background-color: transparent;
+}
+#Iconset .Icon .Upper.icon-contact:hover .circle-lower {
+  z-index: 0;
+  background-color: #eee;
+}
+#Iconset .Icon .Lower {
+  padding: 4px;
+  color: #fff;
+  font-size: 13px;
+  display: grid;
+  place-items: center;
+}
+#Iconset .Icon:hover {
+  border: 1px solid #ddd;
+}
+
+#Searchbar {
+  z-index: 999;
+  position: sticky;
+  top: 30px;
+  padding: 4px;
+  width: 100%;
+  height: 40px;
+  background-color: #fff;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+#Searchbar .URLbar {
+  flex-grow: 1;
+  height: 30px;
+  border-radius: 4px;
+  box-shadow: var(--box-shadow);
+  background-color: var(--Searchbar-background-color);
+  cursor: text;
+}
+#Searchbar > button {
+  height: 100%;
+  aspect-ratio: 1;
+  border-radius: 4px;
+  box-shadow: var(--box-shadow);
+}
+#Searchbar > button.Left {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-chevron-left' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0'/%3E%3C/svg%3E") center/40% no-repeat;
+}
+#Searchbar > button.Right {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-chevron-right' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708'/%3E%3C/svg%3E") center/40% no-repeat;
+}
+#Searchbar > button:hover {
+  background-color: #eee;
+}
+
+#Taskbar {
+  z-index: 999;
+  position: relative;
+  padding: 4px;
+  width: 100vw;
+  height: 50px;
+  background-color: var(--Taskbar-background-color);
+  display: flex;
+  /* display: none; */
+}
+#Taskbar > button {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 6px;
+  height: calc(100% - 8px);
+  aspect-ratio: 1;
+  border-radius: 4px;
+  gap: 2px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+#Taskbar > button > div {
+  width: 100%;
+  aspect-ratio: 1;
+}
+#Taskbar > button:hover {
+  background-color: #fff;
+}
+
+#TimeContainer {
+  margin-left: auto;
+  padding: 0 10px;
+  width: fit-content;
+  height: 100%;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+}
+#TimeContainer:hover {
+  background-color: #fff;
+}
+#TimeContainer .Time, #TimeContainer .Yeartoday {
+  font-size: 13px;
+}
+
+.Titlebar {
+  z-index: 999;
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  height: 30px;
+  background-color: var(--Titlebar-background-color);
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  box-sizing: border-box;
+}
+.Titlebar .Restore {
+  height: 100%;
+  aspect-ratio: 1.2/1;
+  display: grid;
+  place-items: center;
+  background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-arrow-down-left-square' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm10.096 3.146a.5.5 0 1 1 .707.708L6.707 9.95h2.768a.5.5 0 1 1 0 1H5.5a.5.5 0 0 1-.5-.5V6.475a.5.5 0 1 1 1 0v2.768z'/></svg>") center/40% no-repeat;
+}
+.Titlebar .Restore:hover {
+  background-color: #ccc;
+}
+.Titlebar .Minimize {
+  height: 100%;
+  aspect-ratio: 1.2/1;
+  display: grid;
+  place-items: center;
+  background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-fullscreen' viewBox='0 0 16 16'><path d='M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4A1.5 1.5 0 0 1 1.5 0h4a.5.5 0 0 1 0 1zM10 .5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 16 1.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5M.5 10a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 0 14.5v-4a.5.5 0 0 1 .5-.5m15 0a.5.5 0 0 1 .5.5v4a1.5 1.5 0 0 1-1.5 1.5h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5'/></svg>") center/40% no-repeat;
+}
+.Titlebar .Minimize:hover {
+  background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-fullscreen-exit' viewBox='0 0 16 16'><path d='M5.5 0a.5.5 0 0 1 .5.5v4A1.5 1.5 0 0 1 4.5 6h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5m5 0a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 10 4.5v-4a.5.5 0 0 1 .5-.5M0 10.5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 6 11.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5m10 1a1.5 1.5 0 0 1 1.5-1.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0z'/></svg>") center/40% no-repeat;
+  background-color: #ccc;
+  transition: all 0s;
+}
+.Titlebar .Close {
+  height: 100%;
+  aspect-ratio: 1.2/1;
+  display: grid;
+  place-items: center;
+  background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-x-lg' viewBox='0 0 16 16'><path d='M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z'/></svg>") center/40% no-repeat;
+}
+.Titlebar .Close:hover {
+  background-color: #F05A5A;
+  transition: all 0s;
+}
+
+.Tab {
+  z-index: 999;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  padding: 0 8px;
+  width: 220px;
+  height: 30px;
+  font-size: 13px;
+  border-right: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 4px 4px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.Tab > button {
+  width: 16px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: #eee;
+  background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-x-lg' viewBox='0 0 16 16'><path d='M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z'/></svg>") center/70% no-repeat;
+  visibility: hidden;
+  opacity: 0;
+}
+.Tab > button:hover {
+  background-color: #ddd;
+}
+.Tab:hover button {
+  visibility: visible;
+  opacity: 1;
+  transition: all 0s;
+}
+
+#Canvas canvas {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+
+#Contact {
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  transform: translate(-50%);
+  width: 400px;
+  aspect-ratio: 9/5;
+  backdrop-filter: blur(20px);
+  perspective: 1000px;
+}
+#Contact .flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+#Contact:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+#Contact .flip-card-front,
+#Contact .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+}
+#Contact .flip-card-front {
+  color: black;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#Contact .flip-card-front > canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+#Contact .flip-card-front > p {
+  z-index: 1;
+  font-size: 22px;
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#Contact .flip-card-front > p span {
+  color: #111;
+  font-size: 20px;
+}
+#Contact .flip-card-front > p > span:nth-child(1) {
+  font-family: "DS-DIGI.TTF";
+  font-weight: 600;
+}
+#Contact .flip-card-front > p > span:nth-child(2) {
+  padding-top: 4px;
+  font-size: 24px;
+  font-family: "Signatra";
+}
+#Contact .flip-card-back {
+  padding: 30px;
+  border: 1px solid #888;
+  background-color: #f8f9fa;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+#Contact .flip-card-back .close-card {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 20px;
+  aspect-ratio: 1;
+  background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-x-circle-fill' viewBox='0 0 16 16'><path d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z'/></svg>") center/contain no-repeat;
+  cursor: pointer;
+}
+#Contact .flip-card-back > ul {
+  position: relative;
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+}
+#Contact .flip-card-back > ul li {
+  font-size: 14px;
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+#Contact .flip-card-back > ul li svg {
+  width: 15px;
+  aspect-ratio: 1;
+}
+#Contact .flip-card-back > ul .name {
+  font-size: 18px;
+}
+#Contact .flip-card-back > ul .mail {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#Counter {
+  background-color: #fff;
+  overflow-y: scroll;
+}
+#Counter .Container {
+  color: crimson;
+  font-size: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#Counter .Container > span, #Counter .Container button {
+  color: crimson;
+  font-size: 60px;
+}
+
+#Game2048 .Container {
+  padding: 20px;
+  font-size: 28px;
+  background-color: #00224D;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+#Game2048 .Container > p {
+  color: #fff;
+  font-size: 28px;
+}
+#Game2048 .Container > table {
+  border-collapse: collapse;
+  user-select: none;
+  background-color: #00224D;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
+#Game2048 .Container > table > tr {
+  gap: 10px;
+  display: flex;
+  background-color: #00224D;
+}
+#Game2048 .Container > table > tr > td {
+  flex: 1;
+  aspect-ratio: 1;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 900;
+  border-radius: 4px;
+  background-color: #fff;
+  display: grid;
+  place-items: center;
+}
+#Game2048 .Container .wrap {
+  color: #fff;
+}
+#Game2048 .Container .newGame {
+  margin: 0 auto;
+  width: 100%;
+  height: 44px;
+  color: #000;
+  font-size: 17px;
+  border-radius: 4px;
+  background-color: #fff;
+}
+#Game2048 .Container .newGame:hover {
+  background-color: #ddd;
+}
+#Game2048 .Container .color-2 {
+  background-color: #c8b52a;
+}
+#Game2048 .Container .color-4 {
+  background-color: #8cd700;
+}
+#Game2048 .Container .color-8 {
+  background-color: #09ad06;
+}
+#Game2048 .Container .color-16 {
+  background-color: #0c7216;
+}
+#Game2048 .Container .color-32 {
+  background-color: #9DB2BF;
+}
+#Game2048 .Container .color-64 {
+  background-color: #417e96;
+}
+#Game2048 .Container .color-128 {
+  background-color: #0d5f6a;
+}
+#Game2048 .Container .color-256 {
+  background-color: #1A4D2E;
+}
+#Game2048 .Container .color-512 {
+  background-color: #4477CE;
+}
+#Game2048 .Container .color-1024 {
+  background-color: #2C4E80;
+}
+#Game2048 .Container .color-2048 {
+  background-color: #153448;
+}
+
+#Portfolio .Container {
+  width: 100%;
+  height: calc(100vh - 30px - 40px - 50px);
+  background-color: #fff;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+#Reference {
+  background-color: #000;
+}
+#Reference .Container {
+  color: #fff;
+  display: grid;
+  grid-template: "article aside";
+  grid-template-columns: 1fr 320px;
+}
+#Reference .Container > aside {
+  position: relative;
+  grid-area: aside;
+  padding-top: 70px;
+  width: 100%;
+  height: 100%;
+  font-size: 18px;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+}
+#Reference .Container > aside:hover > :not(:hover) {
+  opacity: 0.3;
+}
+#Reference .Container > aside a {
+  color: #fff;
+}
+#Reference .Container > aside > a {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+#Reference .Container > aside > nav {
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+}
+#Reference .Container > aside > nav a {
+  padding: 10px 0 10px 40px;
+}
+#Reference .Container > aside > nav:hover > :not(:hover) {
+  opacity: 0.3;
+}
+#Reference .Container > article {
+  position: relative;
+  grid-area: article;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+#Reference .Container > article > div {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 500%;
+  height: 100%;
+  background-color: #000;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  transition: all 0.5s;
+}
+#Reference .Container > article > div section {
+  position: relative;
+  padding: 60px 120px 100px 440px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+#Reference .Container > article > div section:nth-child(3) {
+  padding: 0 120px 100px 440px;
+}
+#Reference .Container > article > div section::-webkit-scrollbar {
+  width: 1px;
+  height: 1px;
+}
+#Reference .Container > article > div section:hover > :not(:hover) {
+  opacity: 0.3;
+}
+#Reference .Container > article > div section > hr {
+  margin: 60px 0 20px 0;
+  visibility: hidden;
+}
+#Reference .Container > article > div section > div {
+  position: relative;
+  padding: 20px;
+  background-color: #000;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+#Reference .Container > article > div section > div:not(:nth-child(1)) {
+  margin-top: 40px;
+}
+#Reference .Container > article > div section > div > h1 {
+  color: #666;
+  font-size: 24px;
+}
+#Reference .Container > article > div section > div > p {
+  margin: 0;
+}
+#Reference .Container > article > div section > div > p::before {
+  content: ":  ";
+}
+#Reference .Container > article > div section > div > p s {
+  color: #444;
+}
+#Reference .Container > article > div section > div > a {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translate(0, -50%);
+  padding: 8px 12px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 100;
+  border-radius: 4px;
+  background-color: #246BEB;
+}
+
+#Reference #location-CSS {
+  padding-top: 60px;
+  margin: 0;
+}
+
+#Reference #library .filter_CSS:nth-child(2) {
+  margin-top: 0;
+}
+
+@media screen and (max-width: 1280px) {
+  #Reference .Container > article > div section {
+    padding: 60px 120px 100px 100px;
+  }
+  #Reference .Container > article > div section:nth-child(3) {
+    padding: 0 120px 100px 100px;
+  }
+}
+#Slider > p {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 30px;
+}
+#Slider > canvas {
+  background-color: #000;
+}
+
+#TodoList .Container {
+  padding: 20px;
+  background-color: #fff;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+#TodoList .cont_date {
+  padding: 0 4px 0 0;
+  border-radius: 4px;
+  gap: 6px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+#TodoList .cont_date:hover {
+  padding: 4px 10px;
+  border: 1px solid #999;
+}
+#TodoList .wrap {
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+}
+#TodoList .date {
+  font-size: 40px;
+  font-weight: 600;
+}
+#TodoList .day {
+  font-size: 32px;
+  font-weight: 100;
+}
+#TodoList .month, #TodoList .year {
+  font-size: 14px;
+  font-weight: 300;
+}
+#TodoList h2 {
+  color: #1e90ff;
+  font-size: 32px;
+  gap: 10px;
+  display: flex;
+}
+#TodoList h2 span {
+  font-size: 32px;
+}
+
+.date-picker {
+  position: absolute;
+  left: 50%;
+  top: 0px;
+  transform: translate(-50%);
+  padding: 10px;
+  width: calc(100% - 40px);
+  height: 60px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.todo-list {
+  margin-bottom: auto;
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.todo-list li {
+  padding: 24px 10px;
+  height: 40px;
+  font-size: 15px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.todo-list li:hover {
+  border: 1px solid #999;
+}
+
+.todo-checkbox {
+  height: 18px;
+  aspect-ratio: 1;
+  border: 2px solid #1e90ff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.todo-text {
+  flex-grow: 1;
+  cursor: pointer;
+}
+
+.completed .todo-text {
+  text-decoration: line-through;
+}
+
+.new-todo-form {
+  display: flex;
+  justify-content: space-between;
+}
+.new-todo-form input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+}
+.new-todo-form button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#Addict {
+  background-color: #fff;
+  /* border: 1px solid red; */
+}
+#Addict .Container {
+  overflow-y: scroll;
+}
+
+#AddictAllProduct {
+  width: 100%;
+  height: fit-content;
+  /* border: 1px solid red; */
+  background-color: #fff;
+  gap: 40px;
+  display: flex;
+  flex-direction: column;
+  /* display: none; */
+}
+#AddictAllProduct > div:nth-child(1) {
+  z-index: 1;
+  position: sticky;
+  top: 160px;
+  text-align: center;
+  background-color: #fff;
+}
+#AddictAllProduct > div:nth-child(1) button {
+  margin: 0 4px;
+  padding: 8px 16px;
+  font-size: 15px;
+  border-radius: 50px;
+  background-color: #fff;
+  border: 1px solid #000;
+}
+#AddictAllProduct > div:nth-child(1) button:hover {
+  filter: invert(1);
+}
+
+#AddictAllProduct > div:nth-child(2),
+#AddictBestProduct,
+#AddictLiquidProduct,
+#AddictSolidProduct,
+#AddictGiftProduct {
+  width: 100%;
+  /* border: 1px solid #000; */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+#Addict footer {
+  padding: 0 100px;
+  width: 100%;
+  height: 400px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+#Addict footer > div {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  display: grid;
+  place-items: center;
+}
+#Addict footer > div > div {
+  gap: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+#Addict footer > div > div > h3 {
+  margin-bottom: 15px;
+  text-align: left;
+}
+#Addict footer > div > div > p {
+  text-align: left;
+}
+
+#Addict header {
+  z-index: 1;
+  position: sticky;
+  top: 0;
+  padding: 0 100px;
+  width: 100%;
+  height: 80px;
+  border: 1px solid #fff;
+  background-color: #fff;
+  display: flex;
+}
+#Addict header a, #Addict header button {
+  width: 90px;
+  height: 100%;
+  font-size: 15px;
+  font-weight: 600;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+#Addict header > a:nth-child(1) {
+  padding-bottom: 4px;
+  width: fit-content;
+  height: 100%;
+  aspect-ratio: 2/1;
+  font-size: 30px;
+  font-weight: 400;
+}
+#Addict header > div {
+  position: relative;
+}
+
+#AddictProduct {
+  width: 33.3333333333%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #f5f5f5;
+  background-color: #fff;
+}
+#AddictProduct:last-child {
+  margin-right: auto;
+}
+#AddictProduct > img {
+  width: 100%;
+}
+#AddictProduct > div {
+  padding: 40px 10px;
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+}
+#AddictProduct > div > p {
+  padding: 0 10px;
+  font-size: 19px;
+  display: flex;
+}
+#AddictProduct > div > p > span {
+  margin-right: auto;
+}
+#AddictProduct > div > p:nth-child(2) {
+  color: #999;
+  font-size: 15px;
+}
+
+#AddictProductTypeFilters {
+  z-index: 2;
+  position: sticky;
+  top: 80px;
+  height: 80px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#AddictProductTypeFilters button {
+  padding: 0 20px;
+  height: 100%;
+  font-size: 18px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+#AddictProductTypeFilters button.active {
+  font-weight: 600;
+}
+
+#AddictShortCut {
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+#AddictShortCut > a {
+  width: 100%;
+  aspect-ratio: 1;
+}
+#AddictShortCut > a:nth-child(1) {
+  background: url(../../../../public/img/browser/Addict/liquid.jpg) center/cover no-repeat;
+}
+#AddictShortCut > a:nth-child(1):hover {
+  background: url(../../../../public/img/browser/Addict/liquid2.jpg) center/cover no-repeat;
+}
+#AddictShortCut > a:nth-child(2) {
+  background: url(../../../../public/img/browser/Addict/solid.jpg) center/cover no-repeat;
+}
+#AddictShortCut > a:nth-child(2):hover {
+  background: url(../../../../public/img/browser/Addict/solid2.jpg) center/cover no-repeat;
+}
+
+#AddictSlider {
+  position: relative;
+  width: 100%;
+  height: 1000px;
+  overflow: hidden;
+}
+#AddictSlider .slider {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 300%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+#AddictSlider .slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+#AddictSlider .slide img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+}
+#AddictSlider .wrap_button {
+  position: absolute;
+  top: 50%;
+  padding: 0 40px;
+  transform: translate(0, -50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+#AddictSlider .wrap_button button {
+  width: 40px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+#AddictSlider .wrap_button button:hover {
+  cursor: pointer;
+}
+#AddictSlider .wrap_button button.Left {
+  background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22currentColor%22%20class%3D%22bi%20bi-chevron-left%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M11.354%201.646a.5.5%200%200%201%200%20.708L5.707%208l5.647%205.646a.5.5%200%200%201-.708.708l-6-6a.5.5%200%200%201%200-.708l6-6a.5.5%200%200%201%20.708%200%22%2F%3E%3C%2Fsvg%3E") calc(50% - 1px)/cover no-repeat;
+}
+#AddictSlider .wrap_button button.Right {
+  background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22currentColor%22%20class%3D%22bi%20bi-chevron-right%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M4.646%201.646a.5.5%200%200%201%20.708%200l6%206a.5.5%200%200%201%200%20.708l-6%206a.5.5%200%200%201-.708-.708L10.293%208%204.646%202.354a.5.5%200%200%201%200-.708%22%2F%3E%3C%2Fsvg%3E") calc(50% + 2px)/cover no-repeat;
+}
+
+@media screen and (max-width: 1280px) {
+  #Folder .Container {
+    width: 90vw;
+  }
+}
+#AddictAllPage {
+  width: 100%;
+  height: fit-content;
+}
+
+#AddictExplain {
+  z-index: 999;
+  position: absolute;
+  left: 0;
+  padding: 100px 480px;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(15px);
+  background-color: rgba(0, 0, 0, 0.9);
+  gap: 60px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+#AddictExplain > button {
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  width: 24px;
+  aspect-ratio: 1;
+  background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' fill='white' class='bi bi-x-circle-fill' viewBox='0 0 16 16'><path d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z'/></svg>") center/contain no-repeat;
+  cursor: pointer;
+}
+#AddictExplain > section {
+  color: #fff;
+  gap: 30px;
+  display: flex;
+  flex-direction: column;
+}
+#AddictExplain > section > h2 {
+  position: relative;
+  padding-left: 8px;
+  border-left: 4px solid #fff;
+}
+#AddictExplain > section > p {
+  padding-left: 8px;
+  line-height: 30px;
+}
+#AddictExplain > section > ul {
+  padding-left: 20px;
+  list-style: disc;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
+#AddictExplain > section > ul li {
+  cursor: default;
+}
+
+@media screen and (max-width: 1280px) {
+  #AddictExplain {
+    padding: 100px 160px;
+  }
+}
+#AddictHomePage {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+#AddictHomePage > h2 {
+  padding: 40px 0;
+  font-size: 30px;
+  text-align: center;
+}
+#AddictHomePage .wrap {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+#AddictHomePage .wrap > div {
+  width: 100%;
+  /* border: 1px solid #000; */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+#AddictHomePage .wrap > div > div {
+  width: 100%;
+}
+#AddictHomePage > div:last-child {
+  position: relative;
+  width: 100%;
+  height: fit-content;
+  display: grid;
+  place-items: center;
+}
+#AddictHomePage > div:last-child > img {
+  width: 100%;
+  height: 100%;
+}
+#AddictHomePage > div:last-child > p {
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%);
+  color: #fff;
+  font-size: 40px;
+}
+#AddictHomePage > div:last-child > a {
+  position: absolute;
+  left: 50%;
+  top: 28%;
+  transform: translate(-50%);
+  padding: 8px 20px;
+  color: #fff;
+  font-size: 18px;
+  border: 1px solid #fff;
+  border-radius: 50px;
+  background-color: #000;
+}
+#AddictHomePage > div:last-child > a:hover {
+  filter: invert(1);
+}
+
+#AddictNotePage .wrap {
+  padding-top: 80px;
+  gap: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#AddictNotePage .wrap > p {
+  text-align: center;
+  font-size: 24px;
+  line-height: 34px;
+}
+#AddictNotePage .wrap > img {
+  margin: 0 auto;
+  width: 30%;
+}
+#AddictNotePage > div:nth-child(2) {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#NoteCard {
+  width: 33.3333333333%;
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #f9f9f9;
+  cursor: pointer;
+}
+#NoteCard:last-child {
+  margin-right: auto;
+}
+#NoteCard > img {
+  width: 100%;
+}
+#NoteCard > div {
+  padding: 40px 10px;
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+}
+#NoteCard > div > p {
+  padding: 0 10px;
+  font-size: 19px;
+  display: flex;
+}
+#NoteCard > div > p > span {
+  margin-right: auto;
+}
+#NoteCard > div > p:nth-child(2) {
+  color: #999;
+  font-size: 15px;
+}
+
+#NoteModal {
+  z-index: 1;
+  position: fixed;
+  left: 0;
+  top: 70px;
+  width: 100%;
+  height: calc(100% - 30px - 40px);
+  backdrop-filter: blur(10px);
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+#NoteModal > button {
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  width: 24px;
+  aspect-ratio: 1;
+  background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' fill='black' class='bi bi-x-circle-fill' viewBox='0 0 16 16'><path d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z'/></svg>") center/cover no-repeat;
+  cursor: pointer;
+}
+#NoteModal > section {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+#NoteModal > section > div {
+  width: 100%;
+  height: 100%;
+  background-position: "center";
+  background-size: "cover";
+  background-repeat: "no-repeat";
+}
+#NoteModal .left {
+  padding: 40px;
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
+}
+#NoteModal .left > h1 {
+  font-size: 32px;
+  font-weight: 400;
+}
+#NoteModal .left > p {
+  margin-bottom: auto;
+}
+#NoteModal .right {
+  border-left: 1px solid #eee;
+  overflow-y: scroll;
+}
+#NoteModal .right > div {
+  width: 100%;
+}
+#NoteModal .wrap {
+  column-count: 4;
+  column-fill: auto;
+  width: 100%;
+  height: 240px;
+  line-height: 24px;
+}
+
+#AddictOfflinePage {
+  display: flex;
+  flex-direction: column;
+}
+#AddictOfflinePage > img {
+  margin-bottom: 80px;
+  width: 100%;
+  height: 750px;
+  /* border: 1px solid #000; */
+}
+#AddictOfflinePage .wrap {
+  padding: 40px 140px;
+  border-bottom: 1px solid #eee;
+  gap: 40px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+#AddictOfflinePage .wrap > h3 {
+  grid-column: 1/7;
+}
+#AddictOfflinePage .wrap > div {
+  font-size: 14px;
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+}
+#AddictOfflinePage .wrap > div span {
+  font-weight: 600;
+}
+
+#Pharagraph .Container {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  background-color: #fff;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+#Pharagraph .Container > article {
+  width: 1280px;
+}
+#Pharagraph .Container > article {
+  width: 1280px;
+}
+#Pharagraph .Container h1.Title {
+  margin-bottom: 20px;
+  color: #fff;
+  color: #000;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+}
+
+#Pharagraph header, #Pharagraph nav {
+  padding: 0 100px;
+  width: 100vw;
+  height: 100px;
+  gap: 40px;
+  display: flex;
+}
+#Pharagraph header > a, #Pharagraph header button, #Pharagraph nav > a, #Pharagraph nav button {
+  height: 100%;
+  color: #fff;
+  color: #000;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+#Pharagraph header > a:nth-child(1) {
+  margin-right: auto;
+  font-size: 60px;
+  font-weight: 900;
+}
+#Pharagraph nav {
+  position: fixed;
+  left: 50%;
+  top: 70px;
+  transform: translate(-50%);
+  width: fit-content;
+  gap: 40px;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1280px) {
+  #Pharagraph header {
+    padding: 0 40px;
+  }
+}
+#PharagraphHomePage {
+  padding: 40px 0 100px;
+  gap: 100px;
+  display: flex;
+  flex-direction: column;
+}
+#PharagraphHomePage #banner {
+  height: 500px;
+  border: 1px solid red;
+}
+#PharagraphHomePage #slider {
+  height: 400px;
+  border: 1px solid red;
+}
+
+#PharagraphLoginPage {
+  padding-top: 100px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+#PharagraphLoginPage form {
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+}
+#PharagraphLoginPage form > input, #PharagraphLoginPage form button {
+  padding-left: 10px;
+  width: 280px;
+  height: 40px;
+  min-height: 40px;
+  border-radius: 4px;
+  box-shadow: var(--box-shadow);
+}
+#PharagraphLoginPage form > input {
+  display: flex;
+  align-items: center;
+  border: 1px solid #000;
+}
+#PharagraphLoginPage form > button {
+  background-color: #fff;
+}
+
+#PharagraphMyPage {
+  padding: 100px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#PharagraphPostingPage {
+  padding: 100px 320px;
+  display: flex;
+  flex-direction: column;
+}
+#PharagraphPostingPage > form {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+#PharagraphPostingPage > form > input, #PharagraphPostingPage > form textarea {
+  font-size: 22px;
+  font-family: inherit;
+  line-height: 34px;
+}
+#PharagraphPostingPage > form > input::placeholder, #PharagraphPostingPage > form textarea::placeholder {
+  color: #bbb;
+}
+#PharagraphPostingPage > form > input:focus, #PharagraphPostingPage > form textarea:focus {
+  padding-left: 20px;
+  border: 1px solid #fff;
+  border: 1px solid #000;
+}
+#PharagraphPostingPage > form > input:not(:placeholder-shown), #PharagraphPostingPage > form textarea:not(:placeholder-shown) {
+  padding-left: 20px;
+}
+#PharagraphPostingPage > form > input {
+  height: 80px;
+}
+#PharagraphPostingPage > form > textarea {
+  padding-top: 20px;
+  height: 300px;
+  resize: none;
+}
+#PharagraphPostingPage > form .wrap_button {
+  margin-top: 20px;
+  margin-left: auto;
+  padding: 1px;
+  width: fit-content;
+  height: 60px;
+  gap: 1px;
+  display: flex;
+  background-color: #000;
+}
+#PharagraphPostingPage > form .wrap_button button {
+  width: 100px;
+  height: 100%;
+  color: #000;
+  font-size: 24px;
+  background-color: #fff;
+  cursor: pointer;
+}
+#PharagraphPostingPage > form .wrap_button button:hover {
+  border: 1px solid #000;
+}
+
+@media screen and (max-width: 1280px) {
+  #PharagraphPostingPage {
+    padding: 100px 40px;
+  }
+}
+#PlayList .Container {
+  padding: 100px 320px;
+  position: relative;
+  width: 100%;
+  background-color: #000;
+  gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  overflow-y: scroll;
+}
+#PlayList .Container .VinylChip {
+  width: calc((100% - 40px) / 3);
+  aspect-ratio: 3/4;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+#PlayList .Container .VinylChip .top {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+#PlayList .Container .VinylChip .top > .hole {
+  z-index: 998;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 15.6%;
+  aspect-ratio: 1;
+  background-color: #fff;
+  opacity: 0;
+  border-radius: 50%;
+}
+#PlayList .Container .VinylChip .top > .hole.playing {
+  opacity: 1;
+}
+#PlayList .Container .VinylChip .top > img {
+  width: 100%;
+}
+#PlayList .Container .VinylChip .top > img.playing {
+  width: 95%;
+  border-radius: 50%;
+  animation: rotating 10s linear infinite;
+}
+#PlayList .Container .VinylChip .bot {
+  flex-grow: 1;
+  gap: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#PlayList .Container .VinylChip .bot p {
+  padding: 0 20px;
+  width: 100%;
+  color: #000;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+#PlayList .Container .VinylChip .bot p:nth-child(1) {
+  font-size: 18px;
+}
+#PlayList .Container .VinylChip .bot p:nth-child(2) {
+  font-size: 14px;
+}
+
+@media screen and (max-width: 1280px) {
+  #PlayList .Container {
+    padding: 100px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #PlayList .Container {
+    padding: 100px;
+  }
+  #PlayList .Container .VinylChip {
+    width: calc((100% - 40px) / 2);
+    aspect-ratio: 3/4;
+  }
+  #PlayList .Container .VinylChip .bot p:nth-child(1) {
+    font-size: 1rem;
+  }
+  #PlayList .Container .VinylChip .bot p:nth-child(2) {
+    font-size: 0.75rem;
+  }
+}
+@keyframes rotating {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+#Stack .Container {
+  padding: 40px 320px;
+  width: 100%;
+  height: 100%;
+  gap: 40px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+#Stack .Container > h2 {
+  text-align: center;
+}
+
+@media screen and (max-width: 1280px) {
+  #Stack .Container {
+    padding: 40px 100px;
+  }
+}
+.StackCard {
+  position: relative;
+  padding: 40px;
+  width: calc((100% - 40px) / 3);
+  gap: 30px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+.StackCard > img {
+  margin: 0 auto;
+  width: 150px;
+  aspect-ratio: 1;
+}
+.StackCard .chips {
+  gap: 10px;
+  display: flex;
+}
+.StackCard .description {
+  width: 100%;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.StackCard .description ul {
+  gap: 6px;
+  display: flex;
+  flex-direction: column;
+}
+.StackCard .description ul li {
+  display: flex;
+}
+
+.ChipFamiliar,
+.ChipLearning,
+.ChipDone,
+.ChipFramework,
+.ChipLibrary,
+.ChipCoWorking,
+.ChipTool,
+.ChipETC {
+  padding: 5px 10px;
+  width: fit-content;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+#StackContainer {
+  width: 100%;
+  height: fit-content;
+  gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#StackFilters {
+  width: 100%;
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#StackFilters button {
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+#StackFilters button:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+/*# sourceMappingURL=Compiliing.css.map */

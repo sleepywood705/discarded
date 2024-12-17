@@ -1,0 +1,9 @@
+#Desktop {
+  flex-grow: 1;
+  position: relative;
+  width: 100vw; height: calc(100vh - 50px);
+  background: url(../../public/img/background/background.jpg) center/30% no-repeat;
+  background-color: #000;
+  /* border: 1px solid red; */
+  overflow: hidden;
+}

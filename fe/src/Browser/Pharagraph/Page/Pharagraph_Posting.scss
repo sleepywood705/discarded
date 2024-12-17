@@ -1,0 +1,64 @@
+#PharagraphPostingPage {
+	padding: 100px 320px;
+  display: flex;
+  flex-direction: column;
+
+  > form {
+    width: 100%; height: fit-content;
+		display: flex;
+		flex-direction: column;
+
+		> input, textarea {
+			font-size: 22px;
+			font-family: inherit;
+			line-height: 34px;
+
+			&::placeholder {
+				color: #bbb;
+			}
+
+			&:focus {
+				padding-left: 20px;
+				border: 1px solid #fff;
+				border: 1px solid #000;
+			}
+
+			&:not(:placeholder-shown) {
+				padding-left: 20px;
+			}
+		}
+
+		> input {
+			height: 80px;
+		}
+
+		> textarea {
+			padding-top: 20px;
+			height: 300px;
+			resize: none;
+		}
+
+		.wrap_button {
+			margin-top: 20px;
+			margin-left: auto;
+			padding: 1px;
+			width: fit-content;
+			height: 60px;
+			gap: 1px;
+			display: flex;
+			background-color: #000;
+
+			button {
+				width: 100px; height: 100%;
+				color: #000;
+				font-size: 24px;
+				background-color: #fff;
+				cursor: pointer;
+
+				&:hover {
+					border: 1px solid #000;
+				}
+			}
+		}
+  }
+}

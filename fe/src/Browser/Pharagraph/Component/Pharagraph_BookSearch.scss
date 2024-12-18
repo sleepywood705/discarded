@@ -8,7 +8,7 @@
 	flex-direction: column;
 	
 	> ul {
-		flex: 3;
+		flex: 4;
 		padding-right: 10px;
 		gap: 20px;
 		display: flex;
@@ -25,6 +25,10 @@
     	background-color: #000
 		}
 
+		&.noresult {
+			padding: 0;
+		}
+
 		li {
 			padding: 20px;
 			gap: 20px;
@@ -37,7 +41,11 @@
 			}
 
 			&.noresult {
+				flex-grow: 1;
 				font-size: 18px;
+				border: 1px solid #000;
+				display: grid;
+				place-items: center;
 			}
 
 			> img, div:nth-child(1) {

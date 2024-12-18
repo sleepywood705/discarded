@@ -1,16 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-
-export function useStateChange(initialState = true) {
-  const [state, setState] = useState(initialState);
-
-  const OPEN = () => setState(true);
-  const CLOSE = () => setState(false);
-  const TOGGLE = () => setState(prev => !prev);
-
-  return { state, OPEN, CLOSE, TOGGLE };
-}
 
 export function useWindowClose(창닫기) {
   const navigate = useNavigate();
@@ -21,9 +11,14 @@ export function useWindowClose(창닫기) {
   };
 }
 
-export function useHeadTo() {
-  const navigate = useNavigate();
-  return (path) => navigate(path);
+export function useStateChange(initialState = true) {
+  const [state, setState] = useState(initialState);
+
+  const OPEN = () => setState(true);
+  const CLOSE = () => setState(false);
+  const TOGGLE = () => setState(prev => !prev);
+
+  return { state, OPEN, CLOSE, TOGGLE };
 }
 
 export function useFormChange(initialState = {}) {
@@ -38,4 +33,9 @@ export function useFormChange(initialState = {}) {
   };
 
   return [formData, handleChange, setFormData];
+}
+
+export function useHeadTo() {
+  const navigate = useNavigate();
+  return (path) => navigate(path);
 }

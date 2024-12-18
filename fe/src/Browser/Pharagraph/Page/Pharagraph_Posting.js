@@ -2,77 +2,42 @@ import "./Pharagraph_Posting.scss";
 import { PharagraphBookSearch } from "../Component/Pharagraph_BookSearch";
 import { PharagraphMBTISearch } from "../Component/Pharagraph_MBTISearch";
 import axios from "axios";
-import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useStateChange, useFormChange } from "../../../Hook/Hook";
 
 
 export function PharagraphPostingPage() {
-  const initialState = { book: "", content: "", page: "", music: "", MBTI: "" };
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [formData, handleChange, setFormData] = useFormChange(initialState);
-
+  const [formData, handleChange, setFormData] = useFormChange();
   const search = useStateChange(false);
   const MBTI = useStateChange(false);
-  const showSearch = () => {search.OPEN()};
-  const showMBTI = () => {MBTI.OPEN()};
-
+  
+  const showSearch = () => { search.OPEN() };
+  const showMBTI = () => { MBTI.OPEN() };
   const navigate = useNavigate();
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!isAuthenticated) {
+    const token = localStorage.getItem('token');
+    const username = localStorage.getItem('username');
+
+    if (!token) {
       alert("로그인이 필요한 서비스입니다. 로그인 페이지로 이동합니다.");
-      navigate("/Portfolio/Pharagraph/login");
+      navigate('/Portfolio/Pharagraph/login');
       return;
     }
+
     try {
-      const userResponse = await axios
-        .get(
-          "http://localhost:8080/Pharagraph/loggedIn",
-          { withCredentials: true }
-        );  
-      const postData = {
-        username: userResponse.data.username,
-        ...formData,
-      };
-      await axios
-        .post(
-          "http://localhost:8080/Pharagraph/posting", 
-          postData,
-          { withCredentials: true }
-        );
-      setFormData(initialState);
-      alert("게시글이 성공적으로 작성되었습니다.");
-      navigate("/Portfolio/Pharagraph/list");
+      const res = await axios.post('/Pharagraph/posting', { username, ...formData }, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log(res.data);
+      navigate('/Portfolio/Pharagraph/list');
     } catch (error) {
-      if (error.response) {
-        alert("게시글 작성에 실패했습니다.", error.response.data);
-      } else {
-        alert("서버 연결에 실패했습니다.");
-      }
+      console.error('게시글 등록에 실패했습니다.', error);
     }
   };
-
-  useEffect(() => {
-    const verifyUser = async () => {
-      try {
-        const response = await axios
-          .get(
-            "http://localhost:8080/Pharagraph/verify",
-            {withCredentials: true}
-          );
-          console.log("사용자 인증 성공:", response.data);
-        if (response.data.isAuthenticated) {
-          setIsAuthenticated(true);
-        }
-      } catch (error) {
-        console.error("인증 확인 중 오류가 발생했습니다.", error);
-      }
-    };
-
-    verifyUser();
-  }, []);
 
   return (
     <div id="PharagraphPostingPage">

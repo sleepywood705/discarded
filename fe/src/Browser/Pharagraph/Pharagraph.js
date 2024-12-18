@@ -18,8 +18,8 @@ export function Pharagraph({ 창닫기 }) {
       <div className="Container">
         <PharagraphHeader />
         <Routes>
-          {/* <Route path="/" element={<PharagraphHomePage />} /> */}
-          <Route path="/" element={<PharagraphPostingPage />} />
+          <Route path="/" element={<PharagraphHomePage />} />
+          <Route path="/posting" element={<PharagraphPostingPage />} />
           <Route path="/login" element={<PharagraphLoginPage />} />
           <Route path="/my" element={<PharagraphMyPage />} />
           <Route path="/list" element={<PharagraphListPage />} />

@@ -47,7 +47,7 @@ export function PharagraphBookSearch({ search, setFormData }) {
 
   return (
     <div id="PharagraphBookSearch">
-      <ul className="result">
+      <ul className={results.length > 0 ? "result" : "noresult"}>
         {results.length > 0 ? (
           results.map((item, index) => (
             <li key={index} onClick={() => handleSelect(item.title)}>

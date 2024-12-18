@@ -4,32 +4,38 @@
 	padding: 100px 320px;
 	width: 100vw; height: calc(100vh - 30px - 40px - 50px);
 	backdrop-filter: blur(10px);
-	display: flex;
-	flex-wrap: wrap;
-	align-content: center;
-	justify-content: center;
+	display: grid;
+	place-items: center;
 
-	button {
-		position: relative;
-		width: 200px; aspect-ratio: 1;
-		border: 1px solid #000;
-		cursor: pointer;
 
-		&:hover {
+	div {
+		width: 50%; aspect-ratio: 1;
+		display: flex;
+		flex-wrap: wrap;
+
+		button {
+			position: relative;
+			width: calc(100% / 4); aspect-ratio: 1;
 			border: 1px solid #000;
-		}
-
-		img {
-			position: absolute;
-			left: 50%; top: 50%;
-			transform: translate(-50%, -50%);
-			width: 70%;
+			cursor: pointer;
+	
+			&:hover {
+				border: 1px solid #000;
+			}
+	
+			img {
+				position: absolute;
+				left: 50%; top: 50%;
+				transform: translate(-50%, -50%);
+				width: 70%;
+			}
 		}
 	}
 }
 
+
 @media screen and (max-width: 1280px) {
-  #PharagraphMBTISearch {
-		padding: 320px;
-  }
+	#PharagraphMBTISearch {
+		padding: 0px;
+	}
 }

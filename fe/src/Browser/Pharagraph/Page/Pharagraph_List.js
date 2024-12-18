@@ -9,28 +9,22 @@ export function PharagraphListPage() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios
-          .get(
-            "http://localhost:8080/Pharagraph/list",
-            { withCredentials: true }
-          );
-          setPosts(response.data);
-          console.log("클라이언트에서 받은 데이터:", response.data);
+        const response = await axios.get('/Pharagraph/list');
+        setPosts(response.data);
       } catch (error) {
-        console.error("데이터를 불러오는 도중 오류가 발생했습니다.", error);
+        console.error('게시물 불러오기 실패:', error);
       }
     };
 
     fetchPosts();
   }, []);
 
-  // console.log("렌더링 시 posts 상태:", posts);
   return (
     <div id="PharagraphListPage">
-      <h1 className="Title">글목록</h1>
+      <h1 className="Title">게시판</h1>
       <ul>
         {posts && posts.length > 0 ? (
-          posts.map((post, index) => (
+          posts.slice().reverse().map((post, index) => (
             <li key={index}>
               <div className="top">
                 <div>

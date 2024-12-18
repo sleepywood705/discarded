@@ -64,7 +64,7 @@ export function Folder({
               <div className="Upper">
                 <div className="Inner">Dev</div>
               </div>
-              <div className="Lower">개발 중</div>
+              <div className="Lower">파라그래프</div>
             </div>
           )}
 

@@ -1,42 +1,35 @@
 import "./Pharagraph_Login.scss";
 import axios from "axios";
-import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useFormChange } from "../../../Hook/Hook";
 import { useDispatch } from "react-redux";
 import { login } from "../../../store/store";
-
+import { useFormChange } from "../../../Hook/Hook";
 
 export function PharagraphLoginPage() {
-  const [formData, handleChange] = useFormChange({ username: "", password: "" });
-  
+  const [formData, handleChange] = useFormChange({
+    username: "",
+    password: "",
+  });
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "http://localhost:8080/Pharagraph/login", 
-        formData,
-        { withCredentials: true }
-      );
-      dispatch(login(response.data.user));
-      navigate("/Portfolio/Pharagraph", { replace: true });
+      const res = await axios.post("/Pharagraph/login", formData);
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("username", formData.username)
+      dispatch(login());
+      navigate("/Portfolio/pharagraph");
     } catch (error) {
-      console.error("Error:", error);
-      if (error.response) {
-        alert("아이디 또는 비밀번호가 일치하지 않습니다.");
-      } else {
-        alert("서버 연결에 실패했습니다.");
-      }
+      alert(error.res.data.message);
     }
   };
 
   return (
     <div id="PharagraphLoginPage">
       <form onSubmit={handleSubmit}>
-        <input 
+        <input
           type="text"
           name="username"
           placeholder="아이디"
@@ -44,7 +37,7 @@ export function PharagraphLoginPage() {
           onChange={handleChange}
           required
         />
-        <input 
+        <input
           type="password"
           name="password"
           placeholder="비밀번호"

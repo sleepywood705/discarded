@@ -22,6 +22,23 @@
 			&:hover {
 				border: 1px solid #000;
 			}
+
+			&.ESTJ {background: url(../../../../public/img/mbti/ESTJ.png) center/auto 80% no-repeat;};
+			&.ESFJ {background: url(../../../../public/img/mbti/ESFJ.png) center/auto 80% no-repeat;};
+			&.ENTJ {background: url(../../../../public/img/mbti/ENTJ.png) center/auto 80% no-repeat;};
+			&.ENFJ {background: url(../../../../public/img/mbti/ENFJ.png) center/auto 80% no-repeat;};
+			&.ESTP {background: url(../../../../public/img/mbti/ESTP.png) center/auto 80% no-repeat;};
+			&.ESFP {background: url(../../../../public/img/mbti/ESFP.png) center/auto 80% no-repeat;};
+			&.ENTP {background: url(../../../../public/img/mbti/ENTP.png) center/auto 80% no-repeat;};
+			&.ENFP {background: url(../../../../public/img/mbti/ENFP.png) center/auto 80% no-repeat;};
+			&.ISTJ {background: url(../../../../public/img/mbti/ISTJ.png) center/auto 80% no-repeat;};
+			&.ISFJ {background: url(../../../../public/img/mbti/ISFJ.png) center/auto 80% no-repeat;};
+			&.INTJ {background: url(../../../../public/img/mbti/INTJ.png) center/auto 80% no-repeat;};
+			&.INFJ {background: url(../../../../public/img/mbti/INFJ.png) center/auto 80% no-repeat;};
+			&.ISTP {background: url(../../../../public/img/mbti/ISTP.png) center/auto 80% no-repeat;};
+			&.ISFP {background: url(../../../../public/img/mbti/ISFP.png) center/auto 80% no-repeat;};
+			&.INTP {background: url(../../../../public/img/mbti/INTP.png) center/auto 80% no-repeat;};
+			&.INFP {background: url(../../../../public/img/mbti/INFP.png) center/auto 80% no-repeat;};
 	
 			img {
 				position: absolute;

@@ -10,8 +10,6 @@ export function PharagraphHeader() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const username = localStorage.getItem("username")
-
   const handleLogout = async () => {
     try {
       const res = await axios.post("/Pharagraph/logout");
@@ -27,7 +25,6 @@ export function PharagraphHeader() {
   return (
     <header>
       <Link to="/Portfolio/Pharagraph/">Pharagraph</Link>
-      <span>{username}</span>
       <Link to="/Portfolio/Pharagraph/posting">작성</Link>
       <Link to="/Portfolio/Pharagraph/list">게시판</Link>
       <Link to="/Portfolio/Pharagraph/community">커뮤니티</Link>

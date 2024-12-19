@@ -25,6 +25,7 @@ export function PharagraphLoginPage() {
 
   return (
     <div id="PharagraphLoginPage">
+      <h1 className="Title">로그인</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"

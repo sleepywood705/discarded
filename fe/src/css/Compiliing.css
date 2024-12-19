@@ -1434,6 +1434,13 @@
   display: flex;
   align-items: center;
 }
+@media screen and (max-width: 1280px) {
+  #Pharagraph #PharagraphListPage,
+  #Pharagraph #PharagraphPostingPage,
+  #Pharagraph #PharagraphMyPage {
+    padding: 100px 40px;
+  }
+}
 
 #Pharagraph header, #Pharagraph nav {
   padding: 0 100px;
@@ -1514,7 +1521,7 @@
 }
 
 #PharagraphMyPage {
-  padding: 100px 0;
+  padding: 100px 320px;
   display: flex;
   flex-direction: column;
 }
@@ -1576,11 +1583,6 @@
   border: 1px solid #000;
 }
 
-@media screen and (max-width: 1280px) {
-  #PharagraphPostingPage {
-    padding: 100px 40px;
-  }
-}
 #PlayList .Container {
   padding: 100px 320px;
   position: relative;

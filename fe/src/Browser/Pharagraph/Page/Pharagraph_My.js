@@ -2,10 +2,12 @@ import "./Pharagraph_My.scss";
 
 
 export function PharagraphMyPage() {
+  const username = localStorage.getItem("username")
+
   return (
     <div id="PharagraphMyPage">
-      <h1>마이 페이지</h1>
-
+      <h1>마이페이지</h1>
+      {username}
     </div>
   );
 }

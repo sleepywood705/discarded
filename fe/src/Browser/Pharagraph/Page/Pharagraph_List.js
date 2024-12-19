@@ -4,11 +4,11 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export function PharagraphListPage() {
+  const localUsername = localStorage.getItem("username");
   const [posts, setPosts] = useState([]);
   const [menu, setMenu] = useState({});
 
   const showMenu = (cardUsername) => {
-    const localUsername = localStorage.getItem("username");
     if (cardUsername === localUsername) {
       setMenu((prevMenu) => ({
         ...prevMenu,
@@ -63,11 +63,13 @@ export function PharagraphListPage() {
             .map((post, index) => (
               <li key={index} className="card">
                 <div className="top">
-                  <img src="https://via.placeholder.com/44x44" alt="프로필 이미지" />
+                  <img src="https://via.placeholder.com/44x44" alt="" />
                   <div>
                     <p className="nickname">
                       {post.username} | {post.MBTI}
-                      <button className="dots" onClick={() => showMenu(post.username)} />
+                      {localUsername === post.username && ( // 변경된 부분
+                        <button className="dots" onClick={() => showMenu(post.username)} />
+                      )}
                     </p>
                     {menu[post.username] && (
                       <div className="menu">

@@ -6,10 +6,7 @@ import { login } from "../../../store/store";
 import { useFormChange } from "../../../Hook/Hook";
 
 export function PharagraphLoginPage() {
-  const [formData, handleChange] = useFormChange({
-    username: "",
-    password: "",
-  });
+  const [formData, handleChange] = useFormChange({ username: "", password: "" });
   const navigate = useNavigate();
   const dispatch = useDispatch();
 

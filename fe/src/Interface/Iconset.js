@@ -15,9 +15,18 @@ export function Iconset({ 포트폴리오열기, 폴더열기, 스택열기, 컨
 
       <button className="Icon" onClick={스택열기}>
         <div className="Upper icon-graph">
-          <div className="Graph">
-            <div className="Piece" />
-          </div>
+          <svg className="Graph" viewBox="0 0 200 200">
+            <path d="
+              M 100,100
+              m 100,0
+              a 100,100 0 0,1 -100,100
+              a 100,100 0 0,1 -100,-100
+              a 100,100 0 0,1 100,-100
+              L 100, 100
+              z
+            " fill="#fff" stroke-width="8" />
+          </svg>
+          <div className="Piece"></div>
         </div>
         <div className="Lower">Stacks</div>
       </button>

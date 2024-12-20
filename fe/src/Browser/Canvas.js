@@ -4,15 +4,22 @@ import { useEffect, useRef } from "react";
 
 
 export function Canvas({ 창닫기 }) {
+  return (
+    <Window id="Canvas" tabText="캔버스 연습" 닫기={창닫기}>
+      <Ccanvas />
+    </Window>
+  );
+}
+
+export function Ccanvas() {
   const canvasRef = useRef(null);
 
   useEffect(() => {
     const COLORS = [
-      { r: 20, g: 20, b: 229 }, //blue
-      { r: 194, g: 246, b: 222 }, //ice blue
-      { r: 157, g: 226, b: 39 }, //
-      { r: 252, g: 250, b: 124 }, //
-      { r: 201, g: 255, b: 242 }, //aero blue
+      { r: 0, g: 26, b: 110 }, //navy
+      { r: 7, g: 71, b: 153 }, //blue
+      { r: 0, g: 153, b: 144 }, //teal
+      { r: 225, g: 255, b: 187 }, //green
     ];
 
     class GlowParticle {
@@ -138,8 +145,6 @@ export function Canvas({ 창닫기 }) {
   }, []);
 
   return (
-    <Window id="Canvas" tabText="캔버스 연습" 닫기={창닫기}>
-      <canvas ref={canvasRef}></canvas>
-    </Window>
-  );
+    <canvas ref={canvasRef}></canvas>
+  )
 }

@@ -6,4 +6,11 @@
   background-color: #000;
   /* border: 1px solid red; */
   overflow: hidden;
+
+  canvas {
+    position: absolute;
+    left: 0; top: 0;
+    width: 100vw; height: 100vh;
+    background-color: #fff;
+  }
 }

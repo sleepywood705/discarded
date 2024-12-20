@@ -8,6 +8,7 @@ import { Addict } from "../Browser/Addict/Addict";
 import { PlayList } from "../Browser/PlayList/PlayList";
 import { Pharagraph } from "../Browser/Pharagraph/Pharagraph";
 import { Canvas } from "../Browser/Canvas";
+import { Ccanvas } from "../Browser/Canvas";
 import { Slider } from "../Browser/Slider";
 import { Game2048 } from "../Browser/Game2048";
 import { TodoList } from "../Browser/TodoList"
@@ -31,6 +32,7 @@ export function Desktop() {
 
   return (
     <div id="Desktop">
+      <Ccanvas />
       <Routes>
         <Route path="/Portfolio/stack/*" element={<Stack 창닫기={() => headTo("/Portfolio/")} />} />
         <Route path="/Portfolio/addict/*" element={<Addict 창닫기={() => headTo("/Portfolio/")} />} />

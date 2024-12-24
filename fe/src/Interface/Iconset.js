@@ -5,13 +5,21 @@ import "./Iconset.scss"
 export function Iconset({ 포트폴리오열기, 폴더열기, 스택열기, 컨택트열기 }) {
   return (
     <div id="Iconset">
-      {/* <button className="Icon" onClick={포트폴리오열기}>
+      <button className="Icon" onClick={포트폴리오열기}>
         <div className="Upper icon-portfolio">
           <div className="Person face" />
           <div className="Person chest" />
         </div>
-        <div className="Lower">Portfolio</div>
-      </button> */}
+        <div className="Lower">Resume</div>
+      </button>
+
+      <button className="Icon" onClick={폴더열기}>
+        <div className="Upper icon-folder">
+          <div className="Folder blank" />
+          <div className="Content" />
+        </div>
+        <div className="Lower">Folder</div>
+      </button>
 
       <button className="Icon" onClick={스택열기}>
         <div className="Upper icon-graph">
@@ -24,7 +32,7 @@ export function Iconset({ 포트폴리오열기, 폴더열기, 스택열기, 컨
               a 100,100 0 0,1 100,-100
               L 100, 100
               z
-            " fill="#fff" stroke-width="8" />
+            " fill="#fff" strokeWidth="8" />
           </svg>
           <div className="Piece"></div>
         </div>
@@ -37,14 +45,6 @@ export function Iconset({ 포트폴리오열기, 폴더열기, 스택열기, 컨
           <div className="Contact circle-lower" />
         </div>
         <div className="Lower">Contact</div>
-      </button>
-
-      <button className="Icon" onClick={폴더열기}>
-        <div className="Upper icon-folder">
-          <div className="Folder" />
-          <div className="Content" />
-        </div>
-        <div className="Lower">Folder</div>
       </button>
     </div>
   );

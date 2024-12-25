@@ -15,11 +15,11 @@ export function PharagraphLoginPage() {
     try {
       const res = await axios.post("/Pharagraph/login", formData);
       localStorage.setItem("token", res.data.token);
-      localStorage.setItem("username", formData.username)
+      localStorage.setItem("username", formData.username);
       dispatch(login());
       navigate("/Portfolio/pharagraph");
     } catch (error) {
-      alert(error.res.data.message);
+      alert(error.response?.data?.message || "로그인 중 오류가 발생했습니다.");
     }
   };
 

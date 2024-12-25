@@ -67,7 +67,7 @@ export function PharagraphListPage() {
                   <div>
                     <p className="nickname">
                       {post.username} | {post.MBTI}
-                      {localUsername === post.username && ( // 변경된 부분
+                      {localUsername === post.username && (
                         <button className="dots" onClick={() => showMenu(post.username)} />
                       )}
                     </p>

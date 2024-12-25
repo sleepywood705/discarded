@@ -9,6 +9,7 @@
     flex-wrap: wrap;
 
     > li {
+      flex-grow: 1;
       width: calc((100% - 40px) / 3);
       border: 1px solid #e9e9e9;
       border-radius: 4px;
@@ -71,7 +72,8 @@
 
           .menu {
               position: absolute;
-              right: 0; top: 0;
+              right: 0; top: -120%;
+              transform: translate();
               padding: 1px;
               gap: 1px;
               display: flex;

@@ -126,21 +126,67 @@ app.post("/Pharagraph/login", async (req, res) => {
     if (!user) {
       return res.status(401).json({ message: "사용자를 찾을 수 없습니다." });
     }
-    if (user.password !== password) {
+    
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) {
       return res.status(401).json({ message: "비밀번호가 일치하지 않습니다." });
     }
+    
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });
     res.status(200).json({ message: "로그인에 성공했습니다.", token });
   } catch (err) {
     console.log(err);
-    res
-      .status(500)
-      .json({ message: "로그인 중 오류가 발생했습니다.", error: err.message });
+    res.status(500).json({ message: "로그인 중 오류가 발생했습니다.", error: err.message });
   }
 });
 
 app.post("/Pharagraph/logout", (req, res) => {
+  // 로그아웃 API는 세션 종료 또는 클라이언트 측 토큰 삭제 요청을 수행한다.  
+  // 비동기 작업이 필요하지 않으므로 async로 정의하지 않는다.
   res.status(200).json({ message: "로그아웃되었습니다." });
+});
+
+app.post("/Pharagraph/signup", async (req, res) => {
+  const { username, password } = req.body;
+
+  if (!username || !password) {
+    return res.status(400).json({ message: "아이디와 비밀번호를 입력해야 합니다." });
+  }
+
+  try {
+    const existingUser = await db.collection("User").findOne({ username });
+    if (existingUser) {
+      return res.status(409).json({ message: "이미 사용 중인 아이디입니다." });
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newUser = { username, password: hashedPassword };
+
+    await db.collection("User").insertOne(newUser);
+    res.status(201).json({ message: "회원가입이 완료되었습니다." });
+  } catch (err) {
+    console.error("회원가입 중 오류 발생:", err);
+    res.status(500).json({ message: "서버 오류가 발생했습니다." });
+  }
+});
+
+app.get("/Pharagraph/findID", async (req, res) => {
+  const { username } = req.query; // 쿼리 파라미터에서 username 가져오기
+
+  if (!username) {
+    return res.status(400).json({ message: "아이디를 입력해야 합니다." });
+  }
+
+  try {
+    const existingUser = await db.collection("User").findOne({ username });
+    if (existingUser) {
+      return res.status(409).json({ message: "이미 사용 중인 아이디입니다." });
+    }
+    res.status(200).json({ message: "사용 가능한 아이디입니다." });
+  } catch (error) {
+    console.error("아이디 확인 중 오류 발생:", error);
+    res.status(500).json({ message: "서버 오류가 발생했습니다." });
+  }
 });

@@ -61,10 +61,10 @@ app.post("/Pharagraph/posting", async (req, res) => {
 });
 
 app.post("/Pharagraph/editing", async (req, res) => {
-  const { username, book, content, page, music, MBTI } = req.body;
-  const { id } = req.query; // URL에서 ID 가져오기
+  const { id } = req.query;
+  const { book, content, page, music, MBTI } = req.body;
 
-  if (!username || !book || !content || !music || !id) {
+  if (!book || !content || !music || !id) {
     return res.status(400).json({ message: "모든 필드를 입력해야 합니다." });
   }
   
@@ -91,7 +91,7 @@ app.post("/Pharagraph/delete", async (req, res) => {
   const { id, cardUsername } = req.body;
   const localUsername = req.headers["username"];
 
-  if (!localUsername || cardUsername !== localUsername) {
+  if (cardUsername !== localUsername) {
     return res.status(403).json({ message: "삭제 권한이 없습니다." });
   }
 
@@ -115,7 +115,7 @@ app.post("/Pharagraph/delete", async (req, res) => {
       .json({
         message: "게시물 삭제 중 오류가 발생했습니다.",
         error: err.message,
-      });
+    });
   }
 });
 
@@ -123,19 +123,23 @@ app.post("/Pharagraph/login", async (req, res) => {
   const { username, password } = req.body;
   try {
     const user = await db.collection("User").findOne({ username });
+
     if (!user) {
       return res.status(401).json({ message: "사용자를 찾을 수 없습니다." });
     }
-    
+
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!isPasswordValid) {
       return res.status(401).json({ message: "비밀번호가 일치하지 않습니다." });
     }
-    
+
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });
-    res.status(200).json({ message: "로그인에 성공했습니다.", token });
+
+    // 비밀번호를 제외한 사용자 정보 반환
+    const { password: _, ...userInfo } = user; // 비밀번호 제외
+    res.status(200).json({ message: "로그인에 성공했습니다.", token, userInfo });
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "로그인 중 오류가 발생했습니다.", error: err.message });
@@ -149,10 +153,10 @@ app.post("/Pharagraph/logout", (req, res) => {
 });
 
 app.post("/Pharagraph/signup", async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, nickname, email } = req.body;
 
-  if (!username || !password) {
-    return res.status(400).json({ message: "아이디와 비밀번호를 입력해야 합니다." });
+  if (!username || !password || !nickname) {
+    return res.status(400).json({ message: "아이디, 비밀번호, 닉네임을 입력해야 합니다." });
   }
 
   try {
@@ -162,7 +166,7 @@ app.post("/Pharagraph/signup", async (req, res) => {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = { username, password: hashedPassword };
+    const newUser = { username, password: hashedPassword, nickname, email };
 
     await db.collection("User").insertOne(newUser);
     res.status(201).json({ message: "회원가입이 완료되었습니다." });
@@ -172,21 +176,31 @@ app.post("/Pharagraph/signup", async (req, res) => {
   }
 });
 
-app.get("/Pharagraph/findID", async (req, res) => {
-  const { username } = req.query; // 쿼리 파라미터에서 username 가져오기
+app.get("/Pharagraph/findUser", async (req, res) => {
+  const { username, nickname } = req.query; // 쿼리 파라미터에서 username과 nickname 가져오기
 
-  if (!username) {
-    return res.status(400).json({ message: "아이디를 입력해야 합니다." });
+  if (!username && !nickname) {
+    return res.status(400).json({ message: "아이디 또는 닉네임을 입력해야 합니다." });
   }
 
   try {
-    const existingUser = await db.collection("User").findOne({ username });
-    if (existingUser) {
-      return res.status(409).json({ message: "이미 사용 중인 아이디입니다." });
+    if (username) {
+      const existingUser = await db.collection("User").findOne({ username });
+      if (existingUser) {
+        return res.status(409).json({ message: "이미 사용 중인 아이디입니다." });
+      }
+      return res.status(200).json({ message: "사용 가능한 아이디입니다." });
     }
-    res.status(200).json({ message: "사용 가능한 아이디입니다." });
+
+    if (nickname) {
+      const existingNickname = await db.collection("User").findOne({ nickname });
+      if (existingNickname) {
+        return res.status(409).json({ message: "이미 사용 중인 닉네임입니다." });
+      }
+      return res.status(200).json({ message: "사용 가능한 닉네임입니다." });
+    }
   } catch (error) {
-    console.error("아이디 확인 중 오류 발생:", error);
+    console.error("사용자 확인 중 오류 발생:", error);
     res.status(500).json({ message: "서버 오류가 발생했습니다." });
   }
 });

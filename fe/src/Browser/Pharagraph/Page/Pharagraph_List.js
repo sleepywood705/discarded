@@ -6,18 +6,7 @@ import { Link } from "react-router-dom";
 export function PharagraphListPage() {
   const localUsername = localStorage.getItem("username");
   const [posts, setPosts] = useState([]);
-  const [menu, setMenu] = useState({});
-
-  const showMenu = (cardUsername) => {
-    if (cardUsername === localUsername) {
-      setMenu((prevMenu) => ({
-        ...prevMenu,
-        [cardUsername]: !prevMenu[cardUsername],
-      }));
-    } else {
-      setMenu({});
-    }
-  };
+  const [menuId, setMenuId] = useState(null);
 
   const fetchPosts = async () => {
     try {
@@ -29,22 +18,22 @@ export function PharagraphListPage() {
     }
   };
 
+  const showMenu = (id) => {
+    setMenuId(id);
+  };
+
   const deleteCard = async (id, cardUsername) => {
-    const localUsername = localStorage.getItem("username");
-    if (cardUsername === localUsername) {
-      try {
-        const response = await axios.post(
-          "/Pharagraph/delete",
-          { id, cardUsername, },
-          { headers: { username: localUsername } }
-        );
-        console.log(response.data);
-        fetchPosts();
-      } catch (error) {
-        console.error("게시물 삭제 실패:", error);
-      }
-    } else {
-      console.error("삭제 권한이 없습니다.");
+    try {
+      const response = await axios.post(
+        "/Pharagraph/delete",
+        { id, cardUsername },
+        { headers: { username: localUsername } }
+      );
+      alert(response.data.message);
+      fetchPosts();
+    } catch (error) {
+      console.error("게시물 삭제 실패:", error);
+      alert(error.response?.data?.message || "게시물 삭제 중 오류가 발생했습니다.");
     }
   };
 
@@ -65,15 +54,9 @@ export function PharagraphListPage() {
                 <div className="top">
                   <img src="https://via.placeholder.com/44x44" alt="" />
                   <div>
-                    <p className="nickname">
-                      {post.username} | {post.MBTI}
-                      {localUsername === post.username && (
-                        <button className="dots" onClick={() => showMenu(post.username)} />
-                      )}
-                    </p>
-                    {menu[post.username] && (
+                    {localUsername === post.username && menuId === post._id && (
                       <div className="menu">
-                        <Link to={`/Portfolio/Pharagraph/editing?id=${post._id}&book=${post.book}&content=${post.content}&page=${post.page}&music=${post.music}&MBTI=${post.MBTI}`} >
+                        <Link to={`/Portfolio/Pharagraph/editing?id=${post._id}&book=${post.book}&content=${post.content}&page=${post.page}&music=${post.music}&MBTI=${post.MBTI}`}>
                           수정하기
                         </Link>
                         <button onClick={() => deleteCard(post._id, post.username)} >
@@ -81,15 +64,25 @@ export function PharagraphListPage() {
                         </button>
                       </div>
                     )}
-                    <p className="music">{post.music}</p>
+                    <p className="nickname">
+                      {post.nickname}
+                      {localUsername === post.username && (
+                        <button className="dots" onClick={() => showMenu(post._id)} />
+                      )}
+                    </p>
+                    <p className="MBTI">{post.MBTI}</p>
                   </div>
                 </div>
                 <div className="mid">
+                  <span>
+                    <p className="book">{post.book}</p>
+                    <p className="page">p.{post.page}</p>
+                  </span>
                   <p className="content">{post.content}</p>
-                  <p className="book">{post.book}</p>
-                  <p className="page">p.{post.page}</p>
                 </div>
-                <div className="bot">🤍</div>
+                <div className="bot">
+                  <p className="music">{post.music}</p>
+                </div>
               </li>
             ))
         ) : (

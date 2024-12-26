@@ -1,5 +1,6 @@
 #PharagraphListPage  {
   padding: 100px 320px;
+  color: #f9f9f9;
   display: flex;
   flex-direction: column;
 
@@ -9,31 +10,17 @@
     flex-wrap: wrap;
 
     > li {
-      flex-grow: 1;
       width: calc((100% - 40px) / 3);
-      border: 1px solid #e9e9e9;
       border-radius: 4px;
-
-      &:hover {
-        border: 1px solid #000;
-      }
 
       &.noresult {
         padding: 20px;
       }
 
-      &:hover > .top {
-        border-bottom: 1px solid #000;
-      }
-
-      &:hover > .bot {
-        border-top: 1px solid #000;
-      }
-
       .top {
         padding: 0 20px;
         height: 80px;
-        border-bottom: 1px solid #e9e9e9;
+        background-color: #222;
         gap: 10px;
         display: flex;
         align-items: center;
@@ -52,49 +39,58 @@
           > p {
             &.nickname {
               position: relative;
-              font-size: 18px;
               display: flex;
               align-items: center;
             }
 
-            &.music {
-              font-size: 14px;
+            &.MBTI {
+              padding: 2px 4px;
+              width: fit-content;
+              color: #000;
+              font-weight: 600;
+              font-size: 12px;
+              border-radius: 4px;
+              background-color: #f9f9f9;
             }
 
             > button {
               margin-left: auto;
               width: 20px; aspect-ratio: 1;
-              background: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22currentColor%22%20class%3D%22bi%20bi-three-dots%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M3%209.5a1.5%201.5%200%201%201%200-3%201.5%201.5%200%200%201%200%203m5%200a1.5%201.5%200%201%201%200-3%201.5%201.5%200%200%201%200%203m5%200a1.5%201.5%200%201%201%200-3%201.5%201.5%200%200%201%200%203%22%2F%3E%3C%2Fsvg%3E') center / cover no-repeat;
+              // background: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22currentColor%22%20class%3D%22bi%20bi-three-dots%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M3%209.5a1.5%201.5%200%201%201%200-3%201.5%201.5%200%200%201%200%203m5%200a1.5%201.5%200%201%201%200-3%201.5%201.5%200%200%201%200%203m5%200a1.5%201.5%200%201%201%200-3%201.5%201.5%200%200%201%200%203%22%2F%3E%3C%2Fsvg%3E') center / cover no-repeat;
+              background: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22%23ffffff%22%20class%3D%22bi%20bi-three-dots%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M3%209.5a1.5%201.5%200%201%201%200-3%201.5%201.5%200%200%201%200%203m5%200a1.5%201.5%200%201%201%200-3%201.5%201.5%200%200%201%200%203m5%200a1.5%201.5%200%201%201%200-3%201.5%201.5%200%200%201%200%203%22%2F%3E%3C%2Fsvg%3E') center / cover no-repeat;
               cursor: pointer;
             }
-
           }
 
           .menu {
-              position: absolute;
-              right: 0; top: -120%;
-              transform: translate();
-              padding: 1px;
-              gap: 1px;
-              display: flex;
-              // flex-direction: column;
-              background-color: #000;
+            position: absolute;
+            right: 0; top: -120%;
+            transform: translate();
+            padding: 1px;
+            gap: 1px;
+            display: flex;
+            // flex-direction: column;
+            background-color: #000;
 
-              a, button {
-                padding: 10px;
-                width: fit-content;
-                background-color: #fff;
-                cursor: pointer;
+            a, button {
+              padding: 10px;
+              width: fit-content;
+              color: #000;
+              border: 1px solid #f9f9f9;
+              background-color: #f9f9f9;
+              cursor: pointer;
 
-                &:hover {
-                  border: 1px solid #000;
-                }
+              &:hover {
+                border: 1px solid #f9f9f9;
+                border: 1px solid #000;
               }
+            }
           }
         }
       }
 
       .mid {
+        position: relative;
         aspect-ratio: 4 / 3;
         display: flex;
         flex-direction: column;
@@ -102,19 +98,31 @@
         justify-content: center;
         // border: 1px solid #000;
 
+        > span {
+          position: absolute;
+          left: 20px; top: 20px;
+          gap: 4px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
         p {
           text-align: center;
           white-space: pre-line;
+
+          &.page {
+            font-size: 14px;
+          }
+
+          &.book {
+            font-size: 14px;
+          }
           
           &.content {
             font-size: 18px;
             line-height: 26px;
             // font-weight: 600;
-          }
-
-          &.book {
-            margin-top: 40px;
-            margin-bottom: 4px;
           }
         }
       }
@@ -122,10 +130,10 @@
       .bot {
         padding: 20px;
         height: 80px;
-        border-top: 1px solid #e9e9e9;
+        background-color: #222;
         display: flex;
-        align-items: center;
-        justify-content: flex-end;
+        flex-direction: column;
+        justify-content: center;
       }
     }
   }

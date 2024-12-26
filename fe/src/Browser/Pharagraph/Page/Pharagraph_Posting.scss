@@ -9,7 +9,8 @@
 		display: flex;
 		flex-direction: column;
 
-		> input, textarea {
+		input, textarea {
+			color: #f9f9f9;
 			font-size: 22px;
 			font-family: inherit;
 			line-height: 34px;
@@ -20,8 +21,8 @@
 
 			&:focus {
 				padding-left: 20px;
-				border: 1px solid #fff;
 				border: 1px solid #000;
+				border: 1px solid #f9f9f9;
 			}
 
 			&:not(:placeholder-shown) {
@@ -29,14 +30,71 @@
 			}
 		}
 
-		> input {
+		input {
 			height: 80px;
 		}
 
-		> textarea {
+		textarea {
 			padding-top: 20px;
 			height: 300px;
 			resize: none;
+		}
+
+		button {
+			cursor: pointer;
+		}
+
+		.wrap_input {
+			position: relative;
+			display: flex;
+			align-items: center;
+
+			> input {
+				flex: 1;
+			}
+
+			> button {
+				position: absolute;
+				right: 10px; top: 50%;
+				transform: translate(0, -50%);
+				width: 100px; height: calc(100% - 20px);
+				border: 1px solid #000;
+
+				&.onfocus {
+					background-color: #f9f9f9;
+				}
+			}
+		}
+
+		.wrap_MBTI {
+			height: 80px;
+			display: flex;
+
+			span {
+				position: relative;
+				padding: 1px;
+				gap: 1px;
+				display: flex;
+				background-color: #f9f9f9;
+
+				button {
+					height: 100%; aspect-ratio: 1;
+					color: #f9f9f9;
+					font-size: 22px;
+					background-color: #000;
+					display: grid;
+					place-items: center;
+
+					&.clicked {
+						color: #000;
+						background-color: #f9f9f9;
+					}
+				}
+			}
+
+			span:not(:nth-child(1)) {
+				margin-left: -1px;
+			}
 		}
 
 		.wrap_button {
@@ -51,12 +109,15 @@
 
 			button {
 				width: 100px; height: 100%;
+				color: #f9f9f9;
 				color: #000;
 				font-size: 24px;
-				background-color: #fff;
+        border: 1px solid #f9f9f9;
+        background-color: #f9f9f9;
 				cursor: pointer;
 
 				&:hover {
+					border: 1px solid #f9f9f9;
 					border: 1px solid #000;
 				}
 			}

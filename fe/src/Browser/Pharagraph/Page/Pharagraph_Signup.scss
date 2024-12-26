@@ -17,6 +17,7 @@
       height: 40px;
       min-height: 40px;
       font-size: 14px;
+      border-radius: 2px;
     }
 
     > div {
@@ -27,7 +28,9 @@
 
       > label {
         width: 100px;
+        color: #fff;
         font-size: 14px;
+        gap: 4px;
         display: flex;
         align-items: center;
 
@@ -39,11 +42,14 @@
         padding-left: 10px;
         margin-left: auto;
         width: 50%;
-        border: 1px solid #e9e9e9;
+        color: #f9f9f9;
+        border: 1px solid #555;
 
         &.small { width: 140px; }
 
-        &:focus { border: 1px solid #000; }
+        &:focus { 
+          border: 1px solid #f9f9f9;
+        }
 
         &::placeholder {
           color: #bbb;
@@ -54,7 +60,8 @@
       > button {
         padding: 10px;
         margin-left: 10px;
-        border: 1px solid #ddd;
+        // border: 1px solid #ddd;
+        background-color: #f9f9f9;
         cursor: pointer;
 
         &:hover {
@@ -72,7 +79,8 @@
 
     > button {
       color: #fff;
-      background-color: #000;
+      color: #000;
+      background-color: #f9f9f9;
       cursor: pointer;
     }
   }

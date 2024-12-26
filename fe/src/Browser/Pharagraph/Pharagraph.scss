@@ -1,8 +1,8 @@
 #Pharagraph {
   .Container {
     width: 100%; height: 100%;
+    // background-color: #fff;
     background-color: #000;
-    background-color: #fff;
     overflow-x: hidden;
     overflow-y: scroll;
 
@@ -10,8 +10,8 @@
 
     h1.Title {
       margin-bottom: 20px;
-      color: #fff;
-      color: #000;
+      // color: #000;
+      color: #f9f9f9;
       font-size: 30px;
       display: flex;
       align-items: center;

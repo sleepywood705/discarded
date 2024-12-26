@@ -13,9 +13,14 @@ export function PharagraphHeader() {
   const handleLogout = async () => {
     try {
       const res = await axios.post("/Pharagraph/logout");
+      localStorage.removeItem("_id");
       localStorage.removeItem("token");
+      localStorage.removeItem("authToken");
+      localStorage.removeItem("username");
+      localStorage.removeItem("nickname");
+      localStorage.removeItem("email");
       dispatch(logout());
-      navigate("/Portfolio/pharagraph");
+      navigate("/Portfolio/pharagraph/login");
       alert(res.data.message);
     } catch (error) {
       console.error("로그아웃 중 오류 발생:", error);
@@ -24,8 +29,8 @@ export function PharagraphHeader() {
 
   return (
     <header>
-      <Link to="/Portfolio/Pharagraph/">Pharagraph</Link>
-      <Link to="/Portfolio/Pharagraph/posting">작성</Link>
+      <Link to="/Portfolio/Pharagraph/list">Pharagraph</Link>
+      <Link to="/Portfolio/Pharagraph/">작성</Link>
       <Link to="/Portfolio/Pharagraph/list">게시판</Link>
       <Link to="/Portfolio/Pharagraph/community">커뮤니티</Link>
       {!isLoggedIn && <Link to="/Portfolio/Pharagraph/login">로그인</Link>}

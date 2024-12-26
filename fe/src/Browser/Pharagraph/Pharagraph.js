@@ -9,21 +9,23 @@ import { PharagraphLoginPage } from "./Page/Pharagraph_Login";
 import { PharagraphSignupPage } from "./Page/Pharagraph_Signup";
 import { PharagraphMyPage } from "./Page/Pharagraph_My";
 import { Routes, Route } from "react-router-dom";
-import { useWindowClose } from "../../Hook/Hook";
+import { useWindowClose, useStateChange } from "../../Hook/Hook";
 
 
 export function Pharagraph({ 창닫기 }) {
   const windowClose = useWindowClose(창닫기);
+  const BOOK = useStateChange(false);
+  const MBTI = useStateChange(false);
 
   return (
     <Window id="Pharagraph" tabText="Pharagraph" 닫기={windowClose}>
       <div className="Container">
         <PharagraphHeader />
         <Routes>
-          <Route path="/" element={<PharagraphHomePage />} />
+          {/* <Route path="/" element={<PharagraphHomePage />} /> */}
           <Route path="/list" element={<PharagraphListPage />} />
-          <Route path="/posting" element={<PharagraphPostingPage />} />
-          <Route path="/editing" element={<PharagraphEditingPage />} />
+          <Route path="/" element={<PharagraphPostingPage BOOK={BOOK} MBTI={MBTI} />} />
+          <Route path="/editing" element={<PharagraphEditingPage BOOK={BOOK} MBTI={MBTI} />} />
           <Route path="/login" element={<PharagraphLoginPage />} />
           <Route path="/signup" element={<PharagraphSignupPage />} />
           <Route path="/my" element={<PharagraphMyPage />} />

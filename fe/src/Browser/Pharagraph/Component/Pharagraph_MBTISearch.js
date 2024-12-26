@@ -1,5 +1,5 @@
 import "./Pharagraph_MBTISearch.scss"
-
+import { useEffect } from "react";
 
 export function PharagraphMBTISearch({ MBTI, setFormData }) {
   const handleSelect = (mbtiValue) => {
@@ -7,25 +7,47 @@ export function PharagraphMBTISearch({ MBTI, setFormData }) {
     MBTI.CLOSE();
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === "Escape") {
+      MBTI.CLOSE();
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+    
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
   return (
     <div id="PharagraphMBTISearch">
       <div>
-        <button onClick={() => handleSelect("ESTJ")} className="ESTJ">ESTJ</button>
-        <button onClick={() => handleSelect("ESFJ")} className="ESFJ">ESFJ</button>
-        <button onClick={() => handleSelect("ENTJ")} className="ENTJ">ENTJ</button>
-        <button onClick={() => handleSelect("ENFJ")} className="ENFJ">ENFJ</button>
-        <button onClick={() => handleSelect("ESTP")} className="ESTP">ESTP</button>
-        <button onClick={() => handleSelect("ESFP")} className="ESFP">ESFP</button>
-        <button onClick={() => handleSelect("ENTP")} className="ENTP">ENTP</button>
-        <button onClick={() => handleSelect("ENFP")} className="ENFP">ENFP</button>
-        <button onClick={() => handleSelect("ISTJ")} className="ISTJ">ISTJ</button>
-        <button onClick={() => handleSelect("ISFJ")} className="ISFJ">ISFJ</button>
-        <button onClick={() => handleSelect("INTJ")} className="INTJ">INTJ</button>
-        <button onClick={() => handleSelect("INFJ")} className="INFJ">INFJ</button>
-        <button onClick={() => handleSelect("ISTP")} className="ISTP">ISTP</button>
-        <button onClick={() => handleSelect("ISFP")} className="ISFP">ISFP</button>
-        <button onClick={() => handleSelect("INTP")} className="INTP">INTP</button>
-        <button onClick={() => handleSelect("INFP")} className="INFP">INFP</button>
+        <div>
+          <button onClick={() => handleSelect("ESFJ")} className="ESFJ" />
+          <button onClick={() => handleSelect("ESTJ")} className="ESTJ" />
+          <button onClick={() => handleSelect("ISTJ")} className="ISTJ" />
+          <button onClick={() => handleSelect("ISFJ")} className="ISFJ" />
+        </div>
+        <div>
+          <button onClick={() => handleSelect("ENFJ")} className="ENFJ" />
+          <button onClick={() => handleSelect("ENFP")} className="ENFP" />
+          <button onClick={() => handleSelect("INFJ")} className="INFJ" />
+          <button onClick={() => handleSelect("INFP")} className="INFP" />
+        </div>
+        <div>
+          <button onClick={() => handleSelect("ESTP")} className="ESTP" />
+          <button onClick={() => handleSelect("ESFP")} className="ESFP" />
+          <button onClick={() => handleSelect("ISTP")} className="ISTP" />
+          <button onClick={() => handleSelect("ISFP")} className="ISFP" />
+        </div>
+        <div>
+          <button onClick={() => handleSelect("ENTP")} className="ENTP" />
+          <button onClick={() => handleSelect("ENTJ")} className="ENTJ" />
+          <button onClick={() => handleSelect("INTJ")} className="INTJ" />
+          <button onClick={() => handleSelect("INTP")} className="INTP" />
+        </div>
       </div>
     </div>
   );

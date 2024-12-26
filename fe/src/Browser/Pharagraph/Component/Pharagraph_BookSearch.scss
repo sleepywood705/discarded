@@ -1,4 +1,5 @@
-#PharagraphBookSearch {
+#PharagraphBookSearch,
+#PharagraphMusicSearch {
 	z-index: 999;
 	position: absolute;
 	left: 0; top: 70px;
@@ -48,6 +49,7 @@
 				border: 1px solid #f9f9f9;
 				display: grid;
 				place-items: center;
+				cursor: default;
 			}
 
 			> img, div:nth-child(1) {
@@ -155,7 +157,7 @@
 }
 
 @media screen and (max-width: 1280px) {
-	#PharagraphBookSearch {
+	#PharagraphMusicSearch {
 		padding: 100px 320px;
 		display: flex;
 		flex-direction: column;

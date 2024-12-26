@@ -15,7 +15,7 @@ import { useWindowClose, useStateChange } from "../../Hook/Hook";
 export function Pharagraph({ 창닫기 }) {
   const windowClose = useWindowClose(창닫기);
   const BOOK = useStateChange(false);
-  const MBTI = useStateChange(false);
+  const MUSIC = useStateChange(false);
 
   return (
     <Window id="Pharagraph" tabText="Pharagraph" 닫기={windowClose}>
@@ -24,8 +24,8 @@ export function Pharagraph({ 창닫기 }) {
         <Routes>
           {/* <Route path="/" element={<PharagraphHomePage />} /> */}
           <Route path="/list" element={<PharagraphListPage />} />
-          <Route path="/" element={<PharagraphPostingPage BOOK={BOOK} MBTI={MBTI} />} />
-          <Route path="/editing" element={<PharagraphEditingPage BOOK={BOOK} MBTI={MBTI} />} />
+          <Route path="/" element={<PharagraphPostingPage BOOK={BOOK} MUSIC={MUSIC} />} />
+          <Route path="/editing" element={<PharagraphEditingPage BOOK={BOOK} MUSIC={MUSIC} />} />
           <Route path="/login" element={<PharagraphLoginPage />} />
           <Route path="/signup" element={<PharagraphSignupPage />} />
           <Route path="/my" element={<PharagraphMyPage />} />

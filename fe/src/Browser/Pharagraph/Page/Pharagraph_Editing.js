@@ -1,12 +1,12 @@
 import "./Pharagraph_Posting.scss";
 import { PharagraphBookSearch } from "../Component/Pharagraph_BookSearch";
-import { PharagraphMBTISearch } from "../Component/Pharagraph_MBTISearch";
+import { PharagraphMusicSearch } from "../Component/Pharagraph_MusicSearch";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useStateChange, useFormChange } from "../../../Hook/Hook";
+import { useFormChange } from "../../../Hook/Hook";
 
-export function PharagraphEditingPage({ BOOK, MBTI }) {
+export function PharagraphEditingPage({ BOOK, MUSIC }) {
   const [formData, handleChange, setFormData] = useFormChange();
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
@@ -42,6 +42,7 @@ export function PharagraphEditingPage({ BOOK, MBTI }) {
   const [selectedMBTI, setSelectedMBTI] = useState(["", "", "", ""]);
   const navigate = useNavigate();
   const showBookSearch = () => { BOOK.OPEN() };
+  const showMusicSearch = () => { MUSIC.OPEN() };
   const dontKnow = () => { setFormData(prev => ({ ...prev, page: "알수없음" })) };
   const isSelected = (index, value) => selectedMBTI[index] === value;
   const selectMBTI = (index, value) => {
@@ -83,8 +84,8 @@ export function PharagraphEditingPage({ BOOK, MBTI }) {
       {BOOK.state && (
         <PharagraphBookSearch BOOK={BOOK} setFormData={setFormData} />
       )}
-      {MBTI.state && (
-        <PharagraphMBTISearch MBTI={MBTI} setFormData={setFormData} />
+      {MUSIC.state && (
+        <PharagraphMusicSearch MUSIC={MUSIC} setFormData={setFormData} />
       )}
       <form onSubmit={handleSubmit} onReset={handleReset}>
         <input
@@ -124,6 +125,7 @@ export function PharagraphEditingPage({ BOOK, MBTI }) {
           placeholder="책을 읽으며 어떤 음악을 감상하셨나요?"
           value={formData.music}
           onChange={handleChange}
+          onClick={showMusicSearch}
           autoComplete="off"
           required
         />

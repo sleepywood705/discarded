@@ -18,9 +18,7 @@ export function PharagraphListPage() {
     }
   };
 
-  const showMenu = (id) => {
-    setMenuId(id);
-  };
+  const showMenu = (id) => {setMenuId(id)};
 
   const deleteCard = async (id, cardUsername) => {
     try {
@@ -37,9 +35,7 @@ export function PharagraphListPage() {
     }
   };
 
-  useEffect(() => {
-    fetchPosts();
-  }, []);
+  useEffect(() => {fetchPosts()}, []);
 
   return (
     <div id="PharagraphListPage">

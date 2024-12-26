@@ -5,7 +5,7 @@ import { useFormChange } from "../../../Hook/Hook";
 import { useNavigate } from "react-router-dom";
 
 export function PharagraphSignupPage() {
-  const [formData, handleChange, setFormData] = useFormChange({
+  const [formData, handleChange] = useFormChange({
     username: '',
     nickname: '',
     password1: '',
@@ -17,7 +17,7 @@ export function PharagraphSignupPage() {
   const [passwordMatch, setPasswordMatch] = useState();
   const [passwordError, setPasswordError] = useState('');
   const [emailError, setEmailError] = useState('');
-  const [isPasswordValid, setIsPasswordValid] = useState(true);
+  const setIsPasswordValid = useState(true);
   const navigate = useNavigate();
 
   const handleUsernameChange = (e) => {
@@ -36,15 +36,6 @@ export function PharagraphSignupPage() {
     }
   };
 
-  const handleCheckUsername = async () => {
-    try {
-      const response = await axios.get(`/Pharagraph/findUser?username=${formData.username}`);
-      alert(response.data.message);
-    } catch (error) {
-      alert(error.response?.data?.message || "아이디 중복 확인 중 오류가 발생했습니다.");
-    }
-  };
-
   const handleNicknameChange = (e) => {
     const value = e.target.value;
     handleChange(e);
@@ -53,6 +44,15 @@ export function PharagraphSignupPage() {
       setNicknameError('닉네임은 8자까지 입력할 수 있습니다.');
     } else {
       setNicknameError('');
+    }
+  };
+
+  const handleCheckUsername = async () => {
+    try {
+      const response = await axios.get(`/Pharagraph/findUser?username=${formData.username}`);
+      alert(response.data.message);
+    } catch (error) {
+      alert(error.response?.data?.message || "아이디 중복 확인 중 오류가 발생했습니다.");
     }
   };
 

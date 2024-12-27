@@ -17,6 +17,7 @@ export function PharagraphSignupPage() {
   const [passwordMatch, setPasswordMatch] = useState();
   const [passwordError, setPasswordError] = useState('');
   const [emailError, setEmailError] = useState('');
+  
   const setIsPasswordValid = useState(true);
   const navigate = useNavigate();
 

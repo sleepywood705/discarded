@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export function PharagraphListPage() {
-  const localUsername = localStorage.getItem("username");
+  const loginUser = localStorage.getItem("username");
   const [posts, setPosts] = useState([]);
   const [menuId, setMenuId] = useState(null);
 
@@ -17,7 +17,7 @@ export function PharagraphListPage() {
       console.error("게시물 불러오기 실패:", error);
     }
   };
-
+  
   const showMenu = (id) => {setMenuId(id)};
 
   const deleteCard = async (id, cardUsername) => {
@@ -25,7 +25,7 @@ export function PharagraphListPage() {
       const response = await axios.post(
         "/Pharagraph/delete",
         { id, cardUsername },
-        { headers: { username: localUsername } }
+        { headers: { username: loginUser } }
       );
       alert(response.data.message);
       fetchPosts();
@@ -50,7 +50,7 @@ export function PharagraphListPage() {
                 <div className="top">
                   <img src="https://via.placeholder.com/44x44" alt="" />
                   <div>
-                    {localUsername === post.username && menuId === post._id && (
+                    {loginUser === post.username && menuId === post._id && (
                       <div className="menu">
                         <Link to={`/Portfolio/Pharagraph/editing?id=${post._id}&book=${post.book}&content=${post.content}&page=${post.page}&music=${post.music}&MBTI=${post.MBTI}`}>
                           수정하기
@@ -62,8 +62,8 @@ export function PharagraphListPage() {
                     )}
                     <p className="nickname">
                       {post.nickname}
-                      {localUsername === post.username && (
-                        <button className="dots" onClick={() => showMenu(post._id)} />
+                      {loginUser === post.username && (
+                        <button className="dots" onClick={() => showMenu(post._id)}><i class="bi bi-three-dots"></i></button>
                       )}
                     </p>
                     <p className="MBTI">{post.MBTI}</p>
@@ -71,13 +71,15 @@ export function PharagraphListPage() {
                 </div>
                 <div className="mid">
                   <span>
+                    <p className="music">{post.music}</p>
                     <p className="book">{post.book}</p>
                     <p className="page">p.{post.page}</p>
                   </span>
                   <p className="content">{post.content}</p>
                 </div>
                 <div className="bot">
-                  <p className="music">{post.music}</p>
+                  <button type="button"><i class="bi bi-suit-heart" /></button>
+                  <Link to={`/Portfolio/Pharagraph/reply?id=${post._id}&nickname=${post.nickname}&book=${post.book}&content=${post.content}&page=${post.page}&music=${post.music}&MBTI=${post.MBTI}`}><i class="bi bi-chat-square" /></Link>
                 </div>
               </li>
             ))

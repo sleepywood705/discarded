@@ -1,6 +1,5 @@
 #PharagraphListPage  {
   padding: 100px 320px;
-  color: #f9f9f9;
   display: flex;
   flex-direction: column;
 
@@ -53,12 +52,10 @@
               background-color: #f9f9f9;
             }
 
-            > button {
+            .dots {
               margin-left: auto;
               width: 20px; aspect-ratio: 1;
-              // background: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22currentColor%22%20class%3D%22bi%20bi-three-dots%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M3%209.5a1.5%201.5%200%201%201%200-3%201.5%201.5%200%200%201%200%203m5%200a1.5%201.5%200%201%201%200-3%201.5%201.5%200%200%201%200%203m5%200a1.5%201.5%200%201%201%200-3%201.5%201.5%200%200%201%200%203%22%2F%3E%3C%2Fsvg%3E') center / cover no-repeat;
-              background: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22%23ffffff%22%20class%3D%22bi%20bi-three-dots%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M3%209.5a1.5%201.5%200%201%201%200-3%201.5%201.5%200%200%201%200%203m5%200a1.5%201.5%200%201%201%200-3%201.5%201.5%200%200%201%200%203m5%200a1.5%201.5%200%201%201%200-3%201.5%201.5%200%200%201%200%203%22%2F%3E%3C%2Fsvg%3E') center / cover no-repeat;
-              cursor: pointer;
+              color: #f9f9f9;
             }
           }
 
@@ -78,10 +75,8 @@
               color: #000;
               border: 1px solid #f9f9f9;
               background-color: #f9f9f9;
-              cursor: pointer;
 
               &:hover {
-                border: 1px solid #f9f9f9;
                 border: 1px solid #000;
               }
             }
@@ -118,15 +113,9 @@
         }
 
         p {
-
-          &.page {
-            font-size: 14px;
-          }
-
-          &.book {
-            font-size: 14px;
-          }
-          
+          &.music { font-size: 14px }
+          &.page { font-size: 14px }
+          &.book { font-size: 14px }
           &.content {
             font-size: 18px;
             line-height: 26px;
@@ -136,12 +125,24 @@
       }
 
       .bot {
+        position: relative;
         padding: 20px;
         height: 80px;
         background-color: #222;
+        gap: 14px;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        align-items: center;
+
+        > a, button {
+          color: #f9f9f9;
+          font-size: 20px;
+          display: flex;
+          align-items: center;
+        }
+
+        > audio {
+          margin-right: auto;
+        }
       }
     }
   }

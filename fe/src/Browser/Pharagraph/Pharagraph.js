@@ -5,6 +5,7 @@ import { PharagraphHomePage } from "./Page/Pharagraph_Home";
 import { PharagraphPostingPage } from "./Page/Pharagraph_Posting";
 import { PharagraphEditingPage } from "./Page/Pharagraph_Editing";
 import { PharagraphListPage } from "./Page/Pharagraph_List";
+import { PharagraphReplyPage } from "./Page/Pharagraph_Reply";
 import { PharagraphLoginPage } from "./Page/Pharagraph_Login";
 import { PharagraphSignupPage } from "./Page/Pharagraph_Signup";
 import { PharagraphMyPage } from "./Page/Pharagraph_My";
@@ -23,9 +24,10 @@ export function Pharagraph({ 창닫기 }) {
         <PharagraphHeader />
         <Routes>
           {/* <Route path="/" element={<PharagraphHomePage />} /> */}
-          <Route path="/list" element={<PharagraphListPage />} />
           <Route path="/" element={<PharagraphPostingPage BOOK={BOOK} MUSIC={MUSIC} />} />
           <Route path="/editing" element={<PharagraphEditingPage BOOK={BOOK} MUSIC={MUSIC} />} />
+          <Route path="/list" element={<PharagraphListPage />} />
+          <Route path="/reply" element={<PharagraphReplyPage />} />
           <Route path="/login" element={<PharagraphLoginPage />} />
           <Route path="/signup" element={<PharagraphSignupPage />} />
           <Route path="/my" element={<PharagraphMyPage />} />

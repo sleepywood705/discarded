@@ -3,8 +3,8 @@ import { PharagraphBookSearch } from "../Component/Pharagraph_BookSearch";
 import { PharagraphMusicSearch } from "../Component/Pharagraph_MusicSearch";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
 import { useFormChange } from "../../../Hook/Hook";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export function PharagraphEditingPage({ BOOK, MUSIC }) {
   const [formData, handleChange, setFormData] = useFormChange();
@@ -40,10 +40,13 @@ export function PharagraphEditingPage({ BOOK, MUSIC }) {
   }, [location.search, setFormData]);
   const [isFocused, setIsFocused] = useState(false)
   const [selectedMBTI, setSelectedMBTI] = useState(["", "", "", ""]);
+
   const navigate = useNavigate();
   const showBookSearch = () => { BOOK.OPEN() };
   const showMusicSearch = () => { MUSIC.OPEN() };
+
   const dontKnow = () => { setFormData(prev => ({ ...prev, page: "알수없음" })) };
+  
   const isSelected = (index, value) => selectedMBTI[index] === value;
   const selectMBTI = (index, value) => {
     const newArr = [...selectedMBTI];
@@ -51,6 +54,7 @@ export function PharagraphEditingPage({ BOOK, MUSIC }) {
     setSelectedMBTI(newArr);
     setFormData(prev => ({ ...prev, MBTI: newArr.join('') }));
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem('token');
@@ -74,6 +78,7 @@ export function PharagraphEditingPage({ BOOK, MUSIC }) {
       console.error('게시글 수정에 실패했습니다.', error);
     }
   };
+
   const handleReset = () => {
     setFormData({ book: '', content: '', page: '', music: '', MBTI: '', background: '' });
   };
@@ -106,7 +111,7 @@ export function PharagraphEditingPage({ BOOK, MUSIC }) {
           autoComplete="off"
           required
         />
-        <div className="wrap_input">
+        <div className="wrap_page">
           <input
             type="text"
             name="page"

@@ -9,7 +9,7 @@
   form {
     margin: 20px auto 0;
     gap: 16px; 
-    width: 400px;
+    width: fit-content;
     display: flex;
     flex-direction: column;
 
@@ -24,7 +24,6 @@
       width: 100%;
       display: flex;
       align-items: center;
-      // border: 1px solid #000;
 
       > label {
         width: 100px;
@@ -41,15 +40,11 @@
         flex-grow: 1;
         padding-left: 10px;
         margin-left: auto;
-        width: 50%;
-        color: #f9f9f9;
         border: 1px solid #555;
 
         &.small { width: 140px; }
 
-        &:focus { 
-          border: 1px solid #f9f9f9;
-        }
+        &:focus { border: 1px solid #f9f9f9; }
 
         &::placeholder {
           color: #bbb;
@@ -62,26 +57,23 @@
         margin-left: 10px;
         // border: 1px solid #ddd;
         background-color: #f9f9f9;
-        cursor: pointer;
 
         &:hover {
           border: 1px solid #000;
         }
       }
-
+      
       > p { 
         font-size: 12px;
 
         span { font-size: 12px; }  
       }
-
+      
     }
 
     > button {
-      color: #fff;
       color: #000;
       background-color: #f9f9f9;
-      cursor: pointer;
     }
   }
 }

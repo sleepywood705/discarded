@@ -2,11 +2,13 @@
   .Container {
     width: 100%; height: 100%;
     // background-color: #fff;
+    color: #f9f9f9;
     background-color: #000;
     overflow-x: hidden;
     overflow-y: scroll;
 
     > article { width: 1280px; }
+    input, textarea { color: #f9f9f9 }
 
     h1.Title {
       margin-bottom: 20px;
@@ -19,9 +21,10 @@
   }
 
   @media screen and (max-width: 1280px) {
-    #PharagraphListPage,
     #PharagraphPostingPage,
     #PharagraphEditingPage,
+    #PharagraphListPage,
+    #PharagraphReplyPage,
     #PharagraphMyPage {
       padding: 40px;
     }

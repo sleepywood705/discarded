@@ -10,10 +10,9 @@
 		flex-direction: column;
 
 		input, textarea {
-			color: #f9f9f9;
 			font-size: 22px;
-			font-family: inherit;
 			line-height: 34px;
+			font-family: inherit;
 
 			&::placeholder {
 				color: #bbb;
@@ -40,11 +39,7 @@
 			resize: none;
 		}
 
-		button {
-			cursor: pointer;
-		}
-
-		.wrap_input {
+		.wrap_page {
 			position: relative;
 			display: flex;
 			align-items: center;
@@ -60,9 +55,7 @@
 				width: 100px; height: calc(100% - 20px);
 				border: 1px solid #000;
 
-				&.onfocus {
-					background-color: #f9f9f9;
-				}
+				&.onfocus { background-color: #f9f9f9; }
 			}
 		}
 
@@ -98,26 +91,20 @@
 		}
 
 		.wrap_button {
-			margin-top: 20px;
 			margin-left: auto;
 			padding: 1px;
-			width: fit-content;
-			height: 60px;
+			width: fit-content; height: 60px;
+			background-color: #000;
 			gap: 1px;
 			display: flex;
-			background-color: #000;
 
 			button {
 				width: 100px; height: 100%;
-				color: #f9f9f9;
-				color: #000;
 				font-size: 24px;
         border: 1px solid #f9f9f9;
         background-color: #f9f9f9;
-				cursor: pointer;
 
 				&:hover {
-					border: 1px solid #f9f9f9;
 					border: 1px solid #000;
 				}
 			}

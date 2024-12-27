@@ -1,0 +1,68 @@
+#PharagraphReplyPage {
+  padding: 0 320px;
+  display: flex;
+
+  > article {
+    flex: 3;
+    border: 1px solid #fff;
+  }
+  > aside {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #fff;
+
+    > ul {
+      flex-grow: 1;
+
+      li {
+        padding: 10px;
+        gap: 10px;
+        display: flex;
+        align-items: center;
+
+        > div {
+          &:nth-child(1) {
+            display: grid;
+            place-items: center;
+
+            img { border-radius: 50% }
+          }
+
+          &:nth-child(2) {
+            gap: 4px;
+            display: flex;
+            flex-direction: column;
+
+            p {
+              &.usernick {
+                
+              }
+            }
+          }
+
+        }
+      }
+    }
+
+    > form {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+
+      > input {
+        width: 100%;
+        border: 1px solid #fff;
+      }
+
+      .wrap_button {
+        display: flex;
+        button {
+          width: fit-content;
+          color: #f9f9f9;
+        }
+      }
+    }
+  }
+}

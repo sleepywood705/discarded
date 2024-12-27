@@ -24,11 +24,9 @@
 
     > input {
       width: 280px;
-      color: #f9f9f9;
       border: 1px solid #555;
       
       &:focus {
-        border: 1px solid #000;
         border: 1px solid #f9f9f9;
       }
 
@@ -39,11 +37,8 @@
     }
 
     > button {
-      color: #fff;
       color: #000;
-      background-color: #000;
       background-color: #f9f9f9;
-      cursor: pointer;
     }
   }
 }

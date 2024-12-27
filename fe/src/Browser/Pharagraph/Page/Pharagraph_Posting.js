@@ -11,10 +11,13 @@ export function PharagraphPostingPage({ BOOK, MUSIC }) {
   const [formData, handleChange, setFormData] = useFormChange();
   const [isFocused, setIsFocused] = useState(false)
   const [selectedMBTI, setSelectedMBTI] = useState(["", "", "", ""]);
+
   const navigate = useNavigate();
   const showBookSearch = () => { BOOK.OPEN() };
   const showMusicSearch = () => { MUSIC.OPEN() };
+
   const dontKnow = () => { setFormData(prev => ({ ...prev, page: "알수없음" })) };
+  
   const isSelected = (index, value) => selectedMBTI[index] === value;
   const selectMBTI = (index, value) => {
     const newArr = [...selectedMBTI];
@@ -22,6 +25,7 @@ export function PharagraphPostingPage({ BOOK, MUSIC }) {
     setSelectedMBTI(newArr);
     setFormData(prev => ({ ...prev, MBTI: newArr.join('') }));
   };
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem('token');
@@ -46,6 +50,7 @@ export function PharagraphPostingPage({ BOOK, MUSIC }) {
       console.error('게시글 등록에 실패했습니다.', error);
     }
   };
+  
   const handleReset = () => {
     setFormData({ 
       book: '', 
@@ -93,7 +98,7 @@ export function PharagraphPostingPage({ BOOK, MUSIC }) {
           autoComplete="off"
           required
         /> */}
-        <div className="wrap_input">
+        <div className="wrap_page">
           <input
             type="text"
             name="page"

@@ -4,8 +4,8 @@ import { useState, useEffect, useRef } from "react";
 
 
 export function PharagraphMusicSearch({ MUSIC, setFormData }) {
-  const [results, setResults] = useState([]);
   const inputRef = useRef(null);
+  const [results, setResults] = useState([]);
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -28,11 +28,11 @@ export function PharagraphMusicSearch({ MUSIC, setFormData }) {
     }
   };
 
-  const handleSelect = (title, artist) => {
-    setFormData(prev => ({...prev, music: `${artist} - ${title}`}));
+  const handleSelect = (artist, title, album) => {
+    setFormData(prev => ({...prev, music: `${artist} - ${title} - ${album}`}));
     MUSIC.CLOSE();
   };
-  
+
   const hideSearch = (e) => {
     MUSIC.CLOSE();
   }
@@ -60,7 +60,7 @@ export function PharagraphMusicSearch({ MUSIC, setFormData }) {
       <ul className={results.length > 0 ? "result" : "noresult"}>
         {results.length > 0 ? (
           results.map((item, index) => (
-            <li key={index} onClick={() => handleSelect(item.trackName, item.artistName)}>
+            <li key={index} onClick={() => handleSelect(item.artistName, item.trackName, item.collectionName)}>
               {item.artworkUrl100 ? (
                 <img src={item.artworkUrl100} alt={item.collectionName} />
               ) : (

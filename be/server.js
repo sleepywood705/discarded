@@ -89,9 +89,9 @@ app.post("/Pharagraph/editing", async (req, res) => {
 
 app.post("/Pharagraph/delete", async (req, res) => {
   const { id, cardUsername } = req.body;
-  const localUsername = req.headers["username"];
+  const loginUser = req.headers["username"];
 
-  if (cardUsername !== localUsername) {
+  if (cardUsername !== loginUser) {
     return res.status(403).json({ message: "삭제 권한이 없습니다." });
   }
 
@@ -137,7 +137,6 @@ app.post("/Pharagraph/login", async (req, res) => {
       expiresIn: "1h",
     });
 
-    // 비밀번호를 제외한 사용자 정보 반환
     const { password: _, ...userInfo } = user; // 비밀번호 제외
     res.status(200).json({ message: "로그인에 성공했습니다.", token, userInfo });
   } catch (err) {

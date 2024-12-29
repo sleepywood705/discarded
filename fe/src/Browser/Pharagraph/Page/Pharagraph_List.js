@@ -71,13 +71,13 @@ export function PharagraphListPage() {
                 </div>
                 <div className="mid">
                   <span>
-                    <p className="music">{post.music}</p>
                     <p className="book">{post.book}</p>
                     <p className="page">p.{post.page}</p>
                   </span>
                   <p className="content">{post.content}</p>
                 </div>
                 <div className="bot">
+                  <p className="music">{post.music}</p>
                   <button type="button"><i class="bi bi-suit-heart" /></button>
                   <Link to={`/Portfolio/Pharagraph/reply?id=${post._id}&nickname=${post.nickname}&book=${post.book}&content=${post.content}&page=${post.page}&music=${post.music}&MBTI=${post.MBTI}`}><i class="bi bi-chat-square" /></Link>
                 </div>

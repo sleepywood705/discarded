@@ -2,36 +2,57 @@ import "./Pharagraph_Posting.scss";
 import { PharagraphBookSearch } from "../Component/Pharagraph_BookSearch";
 import { PharagraphMusicSearch } from "../Component/Pharagraph_MusicSearch";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFormChange } from "../../../Hook/Hook";
 
+const MBTI_OPTIONS = [
+  [['E', 'I'], 0],
+  [['S', 'N'], 1],
+  [['T', 'F'], 2],
+  [['J', 'P'], 3]
+];
+
+const INITIAL_FORM_STATE = {
+  book: '',
+  content: '',
+  page: '',
+  music: '',
+  MBTI: ''
+};
 
 export function PharagraphPostingPage({ BOOK, MUSIC }) {
-  const [formData, handleChange, setFormData] = useFormChange();
-  const [isFocused, setIsFocused] = useState(false)
-  const [selectedMBTI, setSelectedMBTI] = useState(["", "", "", ""]);
-
+  const [formData, handleChange, setFormData] = useFormChange({
+    book: '',
+    content: '',
+    page: '',
+    music: '',
+    MBTI: ''
+  });
+  const [isFocused, setIsFocused] = useState(false);
+  const [selectedMBTI, setSelectedMBTI] = useState(Array(4).fill(''));
   const navigate = useNavigate();
-  const showBookSearch = () => { BOOK.OPEN() };
-  const showMusicSearch = () => { MUSIC.OPEN() };
 
-  const dontKnow = () => { setFormData(prev => ({ ...prev, page: "알수없음" })) };
-  
-  const isSelected = (index, value) => selectedMBTI[index] === value;
-  const selectMBTI = (index, value) => {
-    const newArr = [...selectedMBTI];
-    newArr[index] = value;
-    setSelectedMBTI(newArr);
-    setFormData(prev => ({ ...prev, MBTI: newArr.join('') }));
+  // 이벤트 핸들러 통합
+  const handleClick = {
+    bookSearch: () => BOOK.OPEN(),
+    musicSearch: () => MUSIC.OPEN(),
+    dontKnow: () => setFormData(prev => ({ ...prev, page: "알수없음" }))
   };
-  
+
+  const selectMBTI = useCallback((index, value) => {
+    setSelectedMBTI(prev => {
+      const newArr = [...prev];
+      newArr[index] = value;
+      setFormData(curr => ({ ...curr, MBTI: newArr.join('') }));
+      return newArr;
+    });
+  }, [setFormData]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem('token');
-    const username = localStorage.getItem('username');
-    const nickname = localStorage.getItem('nickname');
-
+    
     if (!token) {
       alert("로그인이 필요한 서비스입니다. 로그인 페이지로 이동합니다.");
       navigate('/Portfolio/Pharagraph/login');
@@ -39,36 +60,37 @@ export function PharagraphPostingPage({ BOOK, MUSIC }) {
     }
 
     try {
-      const res = await axios.post(
-        '/Pharagraph/posting',
-        { username, nickname, ...formData }, 
-        { headers: { Authorization: `Bearer ${token}` } } // 수정된 부분
-      );
-      console.log(res.data);
+      const userData = {
+        username: localStorage.getItem('username'),
+        nickname: localStorage.getItem('nickname'),
+        ...formData
+      };
+
+      await axios.post('/Pharagraph/posting', userData, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      
       navigate('/Portfolio/Pharagraph/list');
     } catch (error) {
-      console.error('게시글 등록에 실패했습니다.', error);
+      console.error('게시글 등록 실패:', error);
+      alert('게시글 등록에 실패했습니다.');
     }
   };
-  
-  const handleReset = () => {
-    setFormData({ 
-      book: '', 
-      content: '', 
-      page: '', 
-      music: '', 
-      MBTI: '' });
-  };
+
+  const handleReset = useCallback(() => {
+    if (formData.content && !window.confirm("작성 중인 내용이 모두 삭제됩니다. 계속하시겠습니까?")) {
+      return;
+    }
+    setFormData(INITIAL_FORM_STATE);
+    setSelectedMBTI(Array(4).fill(''));
+  }, [formData.content, setFormData]);
 
   return (
     <div id="PharagraphPostingPage">
       <h1 className="Title">오늘 어떤 글귀를 발견하셨나요?</h1>
-      {BOOK.state && (
-        <PharagraphBookSearch BOOK={BOOK} setFormData={setFormData} />
-      )}
-      {MUSIC.state && (
-        <PharagraphMusicSearch MUSIC={MUSIC} setFormData={setFormData} />
-      )}
+      {BOOK.state && <PharagraphBookSearch BOOK={BOOK} setFormData={setFormData} />}
+      {MUSIC.state && <PharagraphMusicSearch MUSIC={MUSIC} setFormData={setFormData} />}
+      
       <form onSubmit={handleSubmit} onReset={handleReset}>
         <input
           type="text"
@@ -76,7 +98,7 @@ export function PharagraphPostingPage({ BOOK, MUSIC }) {
           placeholder="책의 제목을 알려주세요."
           value={formData.book}
           onChange={handleChange}
-          onClick={showBookSearch}
+          onClick={handleClick.bookSearch}
           autoComplete="off"
           required
         />
@@ -88,16 +110,6 @@ export function PharagraphPostingPage({ BOOK, MUSIC }) {
           autoComplete="off"
           required
         />
-        {/* <input
-          type="text"
-          name="background"
-          placeholder="배경을 선택해 주세요."
-          value={formData.background}
-          onChange={handleChange}
-          onClick={showBackground}
-          autoComplete="off"
-          required
-        /> */}
         <div className="wrap_page">
           <input
             type="text"
@@ -109,7 +121,13 @@ export function PharagraphPostingPage({ BOOK, MUSIC }) {
             onBlur={() => setIsFocused(false)}
             autoComplete="off"
           />
-          <button type="button" className={isFocused ? "onfocus" : ""} onClick={dontKnow}>알수없음</button>
+          <button 
+            type="button" 
+            className={isFocused ? "onfocus" : ""} 
+            onClick={handleClick.dontKnow}
+          >
+            알수없음
+          </button>
         </div>
         <input
           type="text"
@@ -117,7 +135,7 @@ export function PharagraphPostingPage({ BOOK, MUSIC }) {
           placeholder="책을 읽으며 어떤 음악을 감상하셨나요?"
           value={formData.music}
           onChange={handleChange}
-          onClick={showMusicSearch}
+          onClick={handleClick.musicSearch}
           autoComplete="off"
           required
         />
@@ -135,22 +153,20 @@ export function PharagraphPostingPage({ BOOK, MUSIC }) {
           required
         />
         <div className="wrap_MBTI">
-          <span>
-            <button type="button" className={isSelected(0, 'E') ? 'clicked' : ''} onClick={() => selectMBTI(0, 'E')}>E</button>
-            <button type="button" className={isSelected(0, 'I') ? 'clicked' : ''} onClick={() => selectMBTI(0, 'I')}>I</button>
-          </span>
-          <span>
-            <button type="button" className={isSelected(1, 'S') ? 'clicked' : ''} onClick={() => selectMBTI(1, 'S')}>S</button>
-            <button type="button" className={isSelected(1, 'N') ? 'clicked' : ''} onClick={() => selectMBTI(1, 'N')}>N</button>
-          </span>
-          <span>
-            <button type="button" className={isSelected(2, 'T') ? 'clicked' : ''} onClick={() => selectMBTI(2, 'T')}>T</button>
-            <button type="button" className={isSelected(2, 'F') ? 'clicked' : ''} onClick={() => selectMBTI(2, 'F')}>F</button>
-          </span>
-          <span>
-            <button type="button" className={isSelected(3, 'J') ? 'clicked' : ''} onClick={() => selectMBTI(3, 'J')}>J</button>
-            <button type="button" className={isSelected(3, 'P') ? 'clicked' : ''} onClick={() => selectMBTI(3, 'P')}>P</button>
-          </span>
+          {MBTI_OPTIONS.map(([options, index]) => (
+            <span key={index}>
+              {options.map(option => (
+                <button
+                  key={option}
+                  type="button"
+                  className={selectedMBTI[index] === option ? 'clicked' : ''}
+                  onClick={() => selectMBTI(index, option)}
+                >
+                  {option}
+                </button>
+              ))}
+            </span>
+          ))}
         </div>
         <div className="wrap_button">
           <button type="reset">취소</button>

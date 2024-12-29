@@ -44,22 +44,24 @@
 
         &.small { width: 140px; }
 
-        &:focus { border: 1px solid #f9f9f9; }
-
         &::placeholder {
           color: #bbb;
           font-size: 14px;
         }
+
+        &:focus { border: 1px solid #f9f9f9; }
       }
 
-      > button {
+      > button.duplicationCheck {
         padding: 10px;
         margin-left: 10px;
         // border: 1px solid #ddd;
         background-color: #f9f9f9;
 
-        &:hover {
-          border: 1px solid #000;
+        &:focus { 
+          border: 1px solid #fff;
+          outline: none;
+          background-color: cornflowerblue;
         }
       }
       
@@ -68,12 +70,36 @@
 
         span { font-size: 12px; }  
       }
+
+      .wrap_MBTI {
+        span {
+          &:not(:nth-child(1)){ margin-left: -1px; }
+        }
+        button {
+          aspect-ratio: 1;
+          color: #f9f9f9;
+          border: 1px solid #fff;
+
+          &.clicked {
+            color: #000;
+            background-color: #f9f9f9;
+          }
+
+          &:not(:nth-child(1)){ margin-left: -1px; }
+        }
+      }
       
     }
 
     > button {
       color: #000;
       background-color: #f9f9f9;
+
+      &:focus { 
+        border: 1px solid #fff;
+        outline: none;
+        background-color: cornflowerblue;
+      }
     }
   }
 }

@@ -39,6 +39,32 @@
     > button {
       color: #000;
       background-color: #f9f9f9;
+
+      &:focus { 
+        border: 1px solid #fff;
+        background-color: cornflowerblue;
+      }
+    }
+  }
+
+  > a {
+    margin: 12px auto 0;
+    width: 280px; height: 40px;
+    min-height: 40px;
+    border-radius: 2px;
+    border: 1px solid #fff;
+    display: grid;
+    place-items: center;
+
+    &:hover {
+      color: #000;
+      background-color: #f9f9f9;
+    }
+
+    &:focus { 
+      border: 1px solid #fff;
+      outline: none;
+      background-color: cornflowerblue;
     }
   }
 }

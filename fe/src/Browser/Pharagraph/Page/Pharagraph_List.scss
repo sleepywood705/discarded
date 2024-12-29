@@ -113,7 +113,6 @@
         }
 
         p {
-          &.music { font-size: 14px }
           &.page { font-size: 14px }
           &.book { font-size: 14px }
           &.content {
@@ -132,6 +131,14 @@
         gap: 14px;
         display: flex;
         align-items: center;
+
+        > p.music { 
+          margin-right: auto;
+          font-size: 14px;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
 
         > a, button {
           color: #f9f9f9;

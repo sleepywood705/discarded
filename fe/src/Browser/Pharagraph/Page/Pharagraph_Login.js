@@ -1,28 +1,35 @@
 import "./Pharagraph_Login.scss";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "../../../store/store";
 import { useFormChange } from "../../../Hook/Hook";
+
+const ROUTES = {
+  SUCCESS_LOGIN: "/Portfolio/pharagraph/list",
+  SIGNUP: "/Portfolio/Pharagraph/signup"
+};
 
 export function PharagraphLoginPage() {
   const [formData, handleChange] = useFormChange({ username: "", password: "" });
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const saveUserData = (token, userInfo) => {
+    localStorage.setItem("token", token);
+    Object.entries(userInfo).forEach(([key, value]) => {
+      localStorage.setItem(key, value);
+    });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/Pharagraph/login", formData);
-      localStorage.setItem("token", res.data.token);
+      const { data: { token, userInfo } } = await axios.post("/Pharagraph/login", formData);
       
-      const { userInfo } = res.data;
-      Object.keys(userInfo).forEach(key => {
-        localStorage.setItem(key, userInfo[key]);
-      });
-
+      saveUserData(token, userInfo);
       dispatch(login());
-      navigate("/Portfolio/pharagraph/list");
+      navigate(ROUTES.SUCCESS_LOGIN);
     } catch (error) {
       alert(error.response?.data?.message || "로그인 중 오류가 발생했습니다.");
     }
@@ -50,6 +57,7 @@ export function PharagraphLoginPage() {
         />
         <button type="submit">로그인</button>
       </form>
+      <Link to={ROUTES.SIGNUP}>회원가입</Link>
     </div>
   );
 }

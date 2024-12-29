@@ -152,9 +152,9 @@ app.post("/Pharagraph/logout", (req, res) => {
 });
 
 app.post("/Pharagraph/signup", async (req, res) => {
-  const { username, password, nickname, email } = req.body;
+  const { username, password, nickname, email, MBTI } = req.body;
 
-  if (!username || !password || !nickname) {
+  if (!username || !password || !nickname || !MBTI) {
     return res.status(400).json({ message: "아이디, 비밀번호, 닉네임을 입력해야 합니다." });
   }
 
@@ -165,7 +165,13 @@ app.post("/Pharagraph/signup", async (req, res) => {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = { username, password: hashedPassword, nickname, email };
+    const newUser = { 
+      username, 
+      password: hashedPassword, 
+      nickname, 
+      email,
+      MBTI
+    };
 
     await db.collection("User").insertOne(newUser);
     res.status(201).json({ message: "회원가입이 완료되었습니다." });

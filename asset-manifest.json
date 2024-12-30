@@ -1,38 +1,22 @@
 {
   "files": {
-    "main.css": "/Portfolio/static/css/main.fdbfa31f.css",
-    "main.js": "/Portfolio/static/js/main.1237dbd8.js",
+    "main.css": "/Portfolio/static/css/main.363a5365.css",
+    "main.js": "/Portfolio/static/js/main.30dc8d25.js",
     "static/js/488.9561f9b8.chunk.js": "/Portfolio/static/js/488.9561f9b8.chunk.js",
-    "static/media/ESFJ.png": "/Portfolio/static/media/ESFJ.8837e2f95e239089a6c9.png",
-    "static/media/ISFP.png": "/Portfolio/static/media/ISFP.8846f8b46e002d7ee7b4.png",
     "static/media/solid.jpg": "/Portfolio/static/media/solid.d70f686dfdf2c913dd01.jpg",
-    "static/media/ENFP.png": "/Portfolio/static/media/ENFP.1460c05fa9659b6d0401.png",
-    "static/media/ESFP.png": "/Portfolio/static/media/ESFP.23544dcb2ebc89c319e7.png",
-    "static/media/ISTP.png": "/Portfolio/static/media/ISTP.da40cff5957d4f433f7f.png",
-    "static/media/ESTP.png": "/Portfolio/static/media/ESTP.875317c0e56a3c766a5f.png",
-    "static/media/INFP.png": "/Portfolio/static/media/INFP.a35ef0cd48195244dbcd.png",
-    "static/media/INFJ.png": "/Portfolio/static/media/INFJ.a0d78ef9386891991cf0.png",
     "static/media/Saint-Andrews-Queen.ttf": "/Portfolio/static/media/Saint-Andrews-Queen.53fe428684ec1a1dd7af.ttf",
-    "static/media/INTP.png": "/Portfolio/static/media/INTP.3fa34a19538a9e2bd5c3.png",
-    "static/media/ESTJ.png": "/Portfolio/static/media/ESTJ.8c97fd5f0ba88e51d30b.png",
-    "static/media/INTJ.png": "/Portfolio/static/media/INTJ.826aef4f11d7eee4810e.png",
-    "static/media/ENTP.png": "/Portfolio/static/media/ENTP.570b0f4c5fb77431fb8e.png",
     "static/media/solid2.jpg": "/Portfolio/static/media/solid2.d16751e1b7594f3f3465.jpg",
-    "static/media/ENTJ.png": "/Portfolio/static/media/ENTJ.5991612a481e8f8c765d.png",
-    "static/media/ISTJ.png": "/Portfolio/static/media/ISTJ.2ab8ee4349cdb1439440.png",
-    "static/media/ENFJ.png": "/Portfolio/static/media/ENFJ.abc4a1afaff9e44b3de4.png",
-    "static/media/ISFJ.png": "/Portfolio/static/media/ISFJ.4a767542ac3ff4551041.png",
     "static/media/liquid.jpg": "/Portfolio/static/media/liquid.a88aafeb1c7440336282.jpg",
     "static/media/liquid2.jpg": "/Portfolio/static/media/liquid2.7c84d6d8a5f5be49a8f5.jpg",
     "static/media/Signatra.ttf": "/Portfolio/static/media/Signatra.fa93580742d991affbe5.ttf",
     "static/media/DS-DIGI.ttf": "/Portfolio/static/media/DS-DIGI.0ef0e2249326c34137c8.ttf",
     "index.html": "/Portfolio/index.html",
-    "main.fdbfa31f.css.map": "/Portfolio/static/css/main.fdbfa31f.css.map",
-    "main.1237dbd8.js.map": "/Portfolio/static/js/main.1237dbd8.js.map",
+    "main.363a5365.css.map": "/Portfolio/static/css/main.363a5365.css.map",
+    "main.30dc8d25.js.map": "/Portfolio/static/js/main.30dc8d25.js.map",
     "488.9561f9b8.chunk.js.map": "/Portfolio/static/js/488.9561f9b8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fdbfa31f.css",
-    "static/js/main.1237dbd8.js"
+    "static/css/main.363a5365.css",
+    "static/js/main.30dc8d25.js"
   ]
 }

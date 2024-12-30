@@ -22,65 +22,70 @@ import { useStateChange, useHeadTo } from "../Hook/Hook";
 /* 바탕화면 */
 export function Desktop() {
   const headTo = useHeadTo();
-  const portfolio = useStateChange(false);
   const folder = useStateChange(false);
   const game2048 = useStateChange(false);
   const todoList = useStateChange(false);
 
-  // useEffect(() => {
-  //   headTo("/Portfolio/addict/");
-  // }, []);
-
-  const [contact, setContact] = useState(false);
   const [contactStyle, setContactStyle] = useState({})
 
-  const clickContact = () => {
-    setContact(true);
-    setContactStyle({"top": "-180px"})
+  const handleClickContactIcon = () => {
+    setContactStyle({"top": "-180px"});
+  }
+
+  const handleContactClick = () => {
+    setContactStyle({ 
+      "top": "200px",
+      "transform": "translate(-50%) rotate(0deg)",
+      "cursor": "default"
+    });
+  };
+
+  const hideContact = () => {
+    setContactStyle({ 
+      "top": "-30%", 
+      "transform": "translate(-50%) rotate(-90deg)",
+    })
   }
 
   return (
     <div id="Desktop">
       <Ccanvas />
       <Routes>
-        <Route path="/Portfolio/resume/*" element={<Resume 창닫기={() => headTo("/Portfolio/")} />} />
-        <Route path="/Portfolio/stack/*" element={<Stack 창닫기={() => headTo("/Portfolio/")} />} />
-        <Route path="/Portfolio/addict/*" element={<Addict 창닫기={() => headTo("/Portfolio/")} />} />
-        <Route path="/Portfolio/playlist/*" element={<PlayList 창닫기={() => headTo("/Portfolio/")} />} />
-        <Route path="/Portfolio/pharagraph/*" element={<Pharagraph 창닫기={() => headTo("/Portfolio/")} />} />
-        <Route path="/Portfolio/canvas/*" element={<Canvas 창닫기={() => headTo("/Portfolio/")} />} />
-        <Route path="/Portfolio/slider/*" element={<Slider 창닫기={() => headTo("/Portfolio/")} />} />
-        <Route path="/Portfolio/reference/*" element={<Reference 창닫기={() => headTo("/Portfolio/")} />} />
+        {/* <Route path="/Portfolio/resume/*" element={<Resume 창닫기={() => headTo("/Portfolio")} />} /> */}
+        <Route path="/Portfolio/stack/*" element={<Stack 창닫기={() => headTo("/Portfolio")} />} />
+        <Route path="/Portfolio/addict/*" element={<Addict 창닫기={() => headTo("/Portfolio")} />} />
+        <Route path="/Portfolio/playlist/*" element={<PlayList 창닫기={() => headTo("/Portfolio")} />} />
+        <Route path="/Portfolio/pharagraph/*" element={<Pharagraph 창닫기={() => headTo("/Portfolio")} />} />
+        <Route path="/Portfolio/canvas/*" element={<Canvas 창닫기={() => headTo("/Portfolio")} />} />
+        <Route path="/Portfolio/slider/*" element={<Slider 창닫기={() => headTo("/Portfolio")} />} />
+        <Route path="/Portfolio/reference/*" element={<Reference 창닫기={() => headTo("/Portfolio")} />} />
       </Routes>
 
       <Iconset
-        포트폴리오열기={() => headTo("/Portfolio/resume/")}
+        // 포트폴리오열기={() => headTo("/Portfolio/resume")}
         폴더열기={folder.OPEN}
-        스택열기={() => headTo("/Portfolio/stack/")}
-        컨택트열기={clickContact}
+        스택열기={() => headTo("/Portfolio/stack")}
+        컨택트열기={handleClickContactIcon}
       />
 
       {folder.state && (
         <Folder
           창닫기={folder.CLOSE}
-          에이딕트열기={() => headTo("/Portfolio/addict/")}
-          플리열기={() => headTo("/Portfolio/playlist/")}
-          파라그래프열기={() => headTo("/Portfolio/pharagraph/")}
-          캔버스열기={() => headTo("/Portfolio/canvas/")}
-          슬라이더열기={() => headTo("/Portfolio/slider/")}
+          에이딕트열기={() => headTo("/Portfolio/addict")}
+          플리열기={() => headTo("/Portfolio/playlist")}
+          파라그래프열기={() => headTo("/Portfolio/pharagraph")}
+          캔버스열기={() => headTo("/Portfolio/canvas")}
+          슬라이더열기={() => headTo("/Portfolio/slider")}
           게임2048열기={game2048.OPEN}
           투두리스트열기={todoList.OPEN}
-          레퍼런스열기={() => headTo("/Portfolio/reference/")}
+          레퍼런스열기={() => headTo("/Portfolio/reference")}
         />
       )}
 
-      {/* {contact && (
-        <Contact 창닫기={contact.CLOSE} />
-      )} */}
-
-      <Contact 
-        창닫기={contact.CLOSE}
+      <Contact
+        창닫기={hideContact}
         contactStyle={contactStyle}
+        onContactClick={handleContactClick}
       />
 
       {game2048.state && (

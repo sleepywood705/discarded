@@ -2,8 +2,8 @@ import "./Pharagraph_Posting.scss";
 import { PharagraphBookSearch } from "../Component/Pharagraph_BookSearch";
 import { PharagraphMusicSearch } from "../Component/Pharagraph_MusicSearch";
 import axios from "axios";
-import { useState, useEffect, useCallback } from "react";
 import { useFormChange } from "../../../Hook/Hook";
+import { useState, useEffect, useCallback } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const MBTI_OPTIONS = [
@@ -38,11 +38,14 @@ export function PharagraphEditingPage({ BOOK, MUSIC }) {
 
   // 초기 데이터 로드
   useEffect(() => {
-    const fields = ['book', 'content', 'page', 'music', 'MBTI'];
+    const fields = ['book', 'page', 'music', 'MBTI'];
     const initialData = fields.reduce((acc, field) => {
       acc[field] = queryParams.get(field) || "";
       return acc;
     }, {});
+    
+    // content는 별도로 처리
+    initialData.content = decodeURIComponent(queryParams.get('content') || "");
 
     setFormData(initialData);
 
@@ -92,6 +95,7 @@ export function PharagraphEditingPage({ BOOK, MUSIC }) {
     }
     setFormData(INITIAL_FORM_STATE);
     setSelectedMBTI(Array(4).fill(''));
+    navigate('/Portfolio/Pharagraph/list');
   }, [formData.content, setFormData]);
 
   return (

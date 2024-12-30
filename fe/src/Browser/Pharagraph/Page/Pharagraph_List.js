@@ -52,7 +52,7 @@ export function PharagraphListPage() {
                   <div>
                     {loginUser === post.username && menuId === post._id && (
                       <div className="menu">
-                        <Link to={`/Portfolio/Pharagraph/editing?id=${post._id}&book=${post.book}&content=${post.content}&page=${post.page}&music=${post.music}&MBTI=${post.MBTI}`}>
+                        <Link to={`/Portfolio/Pharagraph/editing?id=${post._id}&book=${post.book}&content=${encodeURIComponent(post.content)}&page=${post.page}&music=${post.music}&MBTI=${post.MBTI}`}>
                           수정하기
                         </Link>
                         <button onClick={() => deleteCard(post._id, post.username)} >
@@ -79,7 +79,7 @@ export function PharagraphListPage() {
                 <div className="bot">
                   <p className="music">{post.music}</p>
                   <button type="button"><i class="bi bi-suit-heart" /></button>
-                  <Link to={`/Portfolio/Pharagraph/reply?id=${post._id}&nickname=${post.nickname}&book=${post.book}&content=${post.content}&page=${post.page}&music=${post.music}&MBTI=${post.MBTI}`}><i class="bi bi-chat-square" /></Link>
+                  <Link to={`/Portfolio/Pharagraph/reply?id=${post._id}&nickname=${post.nickname}&book=${post.book}&content=${encodeURIComponent(post.content)}&page=${post.page}&music=${post.music}&MBTI=${post.MBTI}`}><i class="bi bi-chat-square" /></Link>
                 </div>
               </li>
             ))

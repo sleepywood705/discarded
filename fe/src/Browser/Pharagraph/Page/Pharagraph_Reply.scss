@@ -1,66 +1,214 @@
 #PharagraphReplyPage {
-  padding: 0 320px;
+  height: calc(100vh - 30px - 40px - 110px - 50px);
+  gap: 20px;
   display: flex;
+  flex-direction: column;
 
-  > article {
-    flex: 3;
-    border: 1px solid #fff;
+  .card, .cont_reply {
+    margin: 0 auto;
+    width: 480px;
   }
-  > aside {
-    flex-grow: 1;
+
+  > .card {
+    aspect-ratio: 1;
+    border-radius: 4px;
     display: flex;
     flex-direction: column;
-    border: 1px solid #fff;
+    overflow: hidden;
+
+    .top {
+      padding: 0 20px;
+      height: 80px;
+      background-color: #222;
+      gap: 10px;
+      display: flex;
+      align-items: center;
+
+      > img {
+        border-radius: 50%;
+      }
+
+      > div {
+        position: relative;
+        width: 100%;
+        gap: 4px;
+        display: flex;
+        flex-direction: column;
+
+        > p {
+          &.nickname {
+            position: relative;
+            display: flex;
+            align-items: center;
+          }
+
+          &.MBTI {
+            padding: 2px 4px;
+            width: fit-content;
+            color: #000;
+            font-weight: 600;
+            font-size: 12px;
+            border-radius: 4px;
+            background-color: #fff;
+          }
+        }
+      }
+    }
+
+    .mid {
+      flex-grow: 1;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      // border: 1px solid #000;
+
+      > span {
+        position: absolute;
+        left: 0; top: 0;
+        padding: 20px;
+        width: 100%;
+        gap: 4px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        overflow: hidden;
+
+        p {
+          width: 100%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+
+      p {
+        &.page { font-size: 14px }
+        &.book { font-size: 14px }
+        &.content {
+          line-height: 26px;
+          white-space: pre-wrap;
+          // font-weight: 600;
+        }
+      }
+    }
+
+    .bot {
+      position: relative;
+      padding: 20px;
+      height: 80px;
+      background-color: #222;
+      gap: 14px;
+      display: flex;
+      align-items: center;
+
+      > p.music { 
+        margin-right: auto;
+        font-size: 14px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      > a, button {
+        color: #fff;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+      }
+
+      > audio {
+        margin-right: auto;
+      }
+    }
+  }
+
+  > .cont_reply {
+    flex-grow: 1;
+    border-radius: 4px;
+    gap: 40px;
+    display: flex;
+    flex-direction: column;
 
     > ul {
-      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
 
-      li {
+      h4 {
         padding: 10px;
+        border-radius: 4px;
+        background-color: #222;
+      }
+ 
+      li {
+        padding: 20px;
+        border-radius: 2px;
         gap: 10px;
         display: flex;
         align-items: center;
+        overflow: hidden;
+
+        img {
+          border-radius: 50%;
+        }
 
         > div {
-          &:nth-child(1) {
-            display: grid;
-            place-items: center;
+          width: 100%;
+          gap: 4px;
+          display: flex;
+          flex-direction: column;
 
-            img { border-radius: 50% }
-          }
+          p {
+            color: #fff;
+            font-size: 14px;
 
-          &:nth-child(2) {
-            gap: 4px;
-            display: flex;
-            flex-direction: column;
-
-            p {
-              &.usernick {
-                
-              }
+            &.replynick {
+            }
+            &.reply {
             }
           }
-
         }
       }
     }
 
     > form {
-      flex-grow: 1;
+      margin-top: auto;
+      position: relative;
+      padding: 10px;
+      border-radius: 2px;
+      gap: 4px;
       display: flex;
-      flex-direction: column;
-      align-items: end;
+      overflow: hidden;
 
-      > input {
-        width: 100%;
-        border: 1px solid #fff;
+      > textarea {
+        flex: 9;
+        padding: 10px 10px 10px 0;
+        width: 100%; height: fit-content;
+        font-size: 14px;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        white-space: pre-wrap;
+
+        &:focus {
+          padding-left: 10px;
+          border: 1px solid #fff;
+        }
       }
 
-      .wrap_button {
-        display: flex;
-        button {
-          width: fit-content;
-          color: #f9f9f9;
+      > button {
+        flex: 1;
+        padding: 10px;
+        width: 60px; height: 100%;
+        color: #000;
+        border-radius: 2px;
+        background-color: #fff;
+
+        &:focus, &:hover {
+          padding-left: 10px;
+          border: 1px solid #fff;
+          background-color: cornflowerblue;
         }
       }
     }

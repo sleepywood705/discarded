@@ -161,7 +161,7 @@ export function PharagraphSignupPage() {
         {usernameError && (
           <div>
             <label />
-            <p style={{ color: '#f9f9f9' }}>{usernameError}</p>
+            <p style={{ color: '#fff' }}>{usernameError}</p>
           </div>
         )}
         <div>
@@ -186,7 +186,7 @@ export function PharagraphSignupPage() {
         {nicknameError && (
           <div>
             <label />
-            <p style={{ color: '#f9f9f9' }}>{nicknameError}</p>
+            <p style={{ color: '#fff' }}>{nicknameError}</p>
           </div>
         )}
         <div>
@@ -204,7 +204,7 @@ export function PharagraphSignupPage() {
         {passwordError && (
           <div>
             <label />
-            <p style={{ color: '#f9f9f9' }}>{passwordError}</p>
+            <p style={{ color: '#fff' }}>{passwordError}</p>
           </div>
         )}
         <div>
@@ -222,7 +222,7 @@ export function PharagraphSignupPage() {
         {passwordMatch !== undefined && (
           <div>
             <label />
-            <p style={{ color: passwordMatch ? 'yellowgreen' : '#f9f9f9' }}>
+            <p style={{ color: passwordMatch ? 'yellowgreen' : '#fff' }}>
               {passwordMatch ? '비밀번호가 일치합니다.' : '비밀번호가 일치하지 않습니다.'}
             </p>
           </div>
@@ -241,7 +241,7 @@ export function PharagraphSignupPage() {
         {emailError && (
           <div>
             <label />
-            <p style={{ color: '#f9f9f9' }}>{emailError}</p>
+            <p style={{ color: '#fff' }}>{emailError}</p>
           </div>
         )}
         <div>

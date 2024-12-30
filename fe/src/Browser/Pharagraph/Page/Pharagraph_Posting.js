@@ -22,13 +22,7 @@ const INITIAL_FORM_STATE = {
 };
 
 export function PharagraphPostingPage({ BOOK, MUSIC }) {
-  const [formData, handleChange, setFormData] = useFormChange({
-    book: '',
-    content: '',
-    page: '',
-    music: '',
-    MBTI: ''
-  });
+  const [formData, handleChange, setFormData] = useFormChange(INITIAL_FORM_STATE);
   const [isFocused, setIsFocused] = useState(false);
   const [selectedMBTI, setSelectedMBTI] = useState(Array(4).fill(''));
   const navigate = useNavigate();

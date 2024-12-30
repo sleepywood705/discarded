@@ -10,7 +10,6 @@
 @use "../Browser/Contact.scss";
 @use "../Browser/Counter.scss";
 @use "../Browser/Game2048.scss";
-@use "../Browser/Portfolio.scss";
 @use "../Browser/Reference.scss";
 @use "../Browser/Slider.scss";
 @use "../Browser/TodoList.scss";
@@ -39,12 +38,16 @@
 
 // 파라그래프 컴포넌트
 @use "../Browser/Pharagraph/Component/Pharagraph_Header.scss";
+@use "../Browser/Pharagraph/Component/Pharagraph_BookSearch.scss";
 
 // 파라그래프 페이지
 @use "../Browser/Pharagraph/Page/Pharagraph_Home.scss";
+@use "../Browser/Pharagraph/Page/Pharagraph_List.scss";
 @use "../Browser/Pharagraph/Page/Pharagraph_Login.scss";
 @use "../Browser/Pharagraph/Page/Pharagraph_My.scss";
 @use "../Browser/Pharagraph/Page/Pharagraph_Posting.scss";
+@use "../Browser/Pharagraph/Page/Pharagraph_Reply.scss";
+@use "../Browser/Pharagraph/Page/Pharagraph_Signup.scss";
 
 // 플레이리스트
 @use "../Browser/PlayList/PlayList.scss";

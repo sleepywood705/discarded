@@ -49,14 +49,14 @@
           font-size: 14px;
         }
 
-        &:focus { border: 1px solid #f9f9f9; }
+        &:focus { border: 1px solid #fff; }
       }
 
       > button.duplicationCheck {
         padding: 10px;
         margin-left: 10px;
         // border: 1px solid #ddd;
-        background-color: #f9f9f9;
+        background-color: #fff;
 
         &:focus { 
           border: 1px solid #fff;
@@ -77,12 +77,12 @@
         }
         button {
           aspect-ratio: 1;
-          color: #f9f9f9;
+          color: #fff;
           border: 1px solid #fff;
 
           &.clicked {
             color: #000;
-            background-color: #f9f9f9;
+            background-color: #fff;
           }
 
           &:not(:nth-child(1)){ margin-left: -1px; }
@@ -93,7 +93,7 @@
 
     > button {
       color: #000;
-      background-color: #f9f9f9;
+      background-color: #fff;
 
       &:focus { 
         border: 1px solid #fff;

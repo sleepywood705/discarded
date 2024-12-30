@@ -10,7 +10,10 @@
 
     > li {
       width: calc((100% - 40px) / 3);
+      aspect-ratio: 1;
       border-radius: 4px;
+      display: flex;
+      flex-direction: column;
 
       &.noresult {
         padding: 20px;
@@ -49,13 +52,13 @@
               font-weight: 600;
               font-size: 12px;
               border-radius: 4px;
-              background-color: #f9f9f9;
+              background-color: #fff;
             }
 
             .dots {
               margin-left: auto;
               width: 20px; aspect-ratio: 1;
-              color: #f9f9f9;
+              color: #fff;
             }
           }
 
@@ -73,8 +76,8 @@
               padding: 10px;
               width: fit-content;
               color: #000;
-              border: 1px solid #f9f9f9;
-              background-color: #f9f9f9;
+              border: 1px solid #fff;
+              background-color: #fff;
 
               &:hover {
                 border: 1px solid #000;
@@ -85,13 +88,14 @@
       }
 
       .mid {
+        flex-grow: 1;
         position: relative;
-        aspect-ratio: 4 / 3;
+        padding: 100px 0;
+        // aspect-ratio: 4 / 3;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        // border: 1px solid #000;
 
         > span {
           position: absolute;
@@ -116,8 +120,8 @@
           &.page { font-size: 14px }
           &.book { font-size: 14px }
           &.content {
-            font-size: 18px;
             line-height: 26px;
+            white-space: pre-wrap;
             // font-weight: 600;
           }
         }
@@ -141,7 +145,7 @@
         }
 
         > a, button {
-          color: #f9f9f9;
+          color: #fff;
           font-size: 20px;
           display: flex;
           align-items: center;

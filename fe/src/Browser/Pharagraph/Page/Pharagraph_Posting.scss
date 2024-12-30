@@ -20,8 +20,7 @@
 
 			&:focus {
 				padding-left: 20px;
-				border: 1px solid #000;
-				border: 1px solid #f9f9f9;
+				border: 1px solid #fff;
 			}
 
 			&:not(:placeholder-shown) {
@@ -37,6 +36,7 @@
 			padding-top: 20px;
 			height: 300px;
 			resize: none;
+      white-space: pre-wrap;
 		}
 
 		.wrap_page {
@@ -55,7 +55,7 @@
 				width: 100px; height: calc(100% - 20px);
 				border: 1px solid #000;
 
-				&.onfocus { background-color: #f9f9f9; }
+				&.onfocus { background-color: #fff; }
 			}
 		}
 
@@ -68,11 +68,11 @@
 				padding: 1px;
 				gap: 1px;
 				display: flex;
-				background-color: #f9f9f9;
+				background-color: #fff;
 
 				button {
 					height: 100%; aspect-ratio: 1;
-					color: #f9f9f9;
+					color: #fff;
 					font-size: 22px;
 					background-color: #000;
 					display: grid;
@@ -80,7 +80,7 @@
 
 					&.clicked {
 						color: #000;
-						background-color: #f9f9f9;
+						background-color: #fff;
 					}
 				}
 			}
@@ -101,8 +101,8 @@
 			button {
 				width: 100px; height: 100%;
 				font-size: 24px;
-        border: 1px solid #f9f9f9;
-        background-color: #f9f9f9;
+        border: 1px solid #fff;
+        background-color: #fff;
 
 				&:hover {
 					border: 1px solid #000;

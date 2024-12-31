@@ -12,6 +12,7 @@ export function Folder({
   슬라이더열기,
   게임2048열기,
   투두리스트열기,
+  지셉열기,
   레퍼런스열기,
 }) {
   const [state, setState] = useState({
@@ -101,6 +102,15 @@ export function Folder({
                 <div className="Inner">Prac</div>
               </div>
               <div className="Lower">투두리스트 연습</div>
+            </div>
+          )}
+
+          {state.showPractice && (
+            <div className="Icon" onClick={지셉열기}>
+              <div className="Upper">
+                <div className="Inner">Prac</div>
+              </div>
+              <div className="Lower">GSAP 연습</div>
             </div>
           )}
 

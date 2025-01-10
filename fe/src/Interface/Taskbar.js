@@ -7,10 +7,10 @@ export function Taskbar() {
   return (
     <div id="Taskbar">
       <button>
-        <div style={{ backgroundColor: "#BB2525" }}></div>
-        <div style={{ backgroundColor: "#186F65" }}></div>
-        <div style={{ backgroundColor: "#387ADF" }}></div>
-        <div style={{ backgroundColor: "#F4CE14" }}></div>
+        <div />
+        <div />
+        <div />
+        <div />
       </button>
       <div id="TimeContainer">
         <Time />

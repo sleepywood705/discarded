@@ -292,10 +292,23 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
+  cursor: default;
 }
 #Taskbar > button > div {
   width: 100%;
   aspect-ratio: 1;
+}
+#Taskbar > button > div:nth-child(1) {
+  background-color: #bb2525;
+}
+#Taskbar > button > div:nth-child(2) {
+  background-color: #186f65;
+}
+#Taskbar > button > div:nth-child(3) {
+  background-color: #387adf;
+}
+#Taskbar > button > div:nth-child(4) {
+  background-color: #f4ce14;
 }
 #Taskbar > button:hover {
   background-color: #fff;
@@ -317,6 +330,7 @@
 }
 #TimeContainer .Time, #TimeContainer .Yeartoday {
   font-size: 13px;
+  cursor: default;
 }
 
 .Titlebar {
@@ -408,7 +422,7 @@
 #Contact {
   position: absolute;
   left: 50%;
-  top: -30%;
+  top: -40%;
   transform: translate(-50%) rotate(-90deg);
   padding: 20px;
   width: 400px;
@@ -1695,8 +1709,8 @@
   font-size: 14px;
 }
 #PharagraphListPage > ul > li .mid p.content {
-  font-size: 18px;
   line-height: 26px;
+  white-space: pre-wrap;
 }
 #PharagraphListPage > ul > li .bot {
   position: relative;
@@ -1841,6 +1855,7 @@
   padding-top: 20px;
   height: 300px;
   resize: none;
+  white-space: pre-wrap;
 }
 #PharagraphPostingPage > form .wrap_page,
 #PharagraphEditingPage > form .wrap_page {
@@ -1922,18 +1937,21 @@
 }
 
 #PharagraphReplyPage {
+  height: calc(100vh - 30px - 40px - 110px - 50px);
   gap: 20px;
   display: flex;
   flex-direction: column;
 }
-#PharagraphReplyPage .card, #PharagraphReplyPage .reply {
+#PharagraphReplyPage .card, #PharagraphReplyPage .cont_reply {
   margin: 0 auto;
   width: 480px;
 }
 #PharagraphReplyPage > .card {
   aspect-ratio: 1;
+  border-radius: 4px;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 #PharagraphReplyPage > .card .top {
   padding: 0 20px;
@@ -2000,8 +2018,8 @@
   font-size: 14px;
 }
 #PharagraphReplyPage > .card .mid p.content {
-  font-size: 18px;
   line-height: 26px;
+  white-space: pre-wrap;
 }
 #PharagraphReplyPage > .card .bot {
   position: relative;
@@ -2028,56 +2046,68 @@
 #PharagraphReplyPage > .card .bot > audio {
   margin-right: auto;
 }
-#PharagraphReplyPage > .reply {
+#PharagraphReplyPage > .cont_reply {
+  flex-grow: 1;
+  border-radius: 4px;
   gap: 40px;
   display: flex;
   flex-direction: column;
 }
-#PharagraphReplyPage > .reply > ul {
-  flex-grow: 1;
+#PharagraphReplyPage > .cont_reply > ul {
+  display: flex;
+  flex-direction: column;
 }
-#PharagraphReplyPage > .reply > ul li {
+#PharagraphReplyPage > .cont_reply > ul h4 {
   padding: 10px;
-  color: #000;
-  font-size: 10px;
-  background-color: #555555;
+  border-radius: 4px;
+  background-color: #222;
+}
+#PharagraphReplyPage > .cont_reply > ul li {
+  padding: 20px;
   border-radius: 2px;
   gap: 10px;
   display: flex;
   align-items: center;
   overflow: hidden;
 }
-#PharagraphReplyPage > .reply > ul li > div:nth-child(1) {
-  display: grid;
-  place-items: center;
-}
-#PharagraphReplyPage > .reply > ul li > div:nth-child(1) img {
+#PharagraphReplyPage > .cont_reply > ul li img {
   border-radius: 50%;
 }
-#PharagraphReplyPage > .reply > ul li > div:nth-child(2) {
+#PharagraphReplyPage > .cont_reply > ul li > div {
+  width: 100%;
   gap: 4px;
   display: flex;
   flex-direction: column;
 }
-#PharagraphReplyPage > .reply > form {
+#PharagraphReplyPage > .cont_reply > ul li > div p {
+  color: #fff;
+  font-size: 14px;
+}
+#PharagraphReplyPage > .cont_reply > form {
+  margin-top: auto;
   position: relative;
+  padding: 10px;
   border-radius: 2px;
+  gap: 4px;
   display: flex;
   overflow: hidden;
 }
-#PharagraphReplyPage > .reply > form > textarea {
+#PharagraphReplyPage > .cont_reply > form > textarea {
   flex: 9;
   padding: 10px 10px 10px 0;
-  display: flex;
-  align-items: center;
   width: 100%;
   height: fit-content;
+  font-size: 14px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  white-space: pre-wrap;
 }
-#PharagraphReplyPage > .reply > form > textarea:focus {
-  padding: 10px;
+#PharagraphReplyPage > .cont_reply > form > textarea:focus {
+  padding-left: 10px;
   border: 1px solid #fff;
 }
-#PharagraphReplyPage > .reply > form > button {
+#PharagraphReplyPage > .cont_reply > form > button {
   flex: 1;
   padding: 10px;
   width: 60px;
@@ -2086,8 +2116,9 @@
   border-radius: 2px;
   background-color: #fff;
 }
-#PharagraphReplyPage > .reply > form > button:focus {
+#PharagraphReplyPage > .cont_reply > form > button:focus, #PharagraphReplyPage > .cont_reply > form > button:hover {
   padding-left: 10px;
+  border: 1px solid #fff;
   background-color: cornflowerblue;
 }
 

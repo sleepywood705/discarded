@@ -32,7 +32,7 @@ export function PharagraphHeader() {
       <Link to="/Portfolio/Pharagraph/list">Pharagraph</Link>
       <Link to="/Portfolio/Pharagraph/">작성</Link>
       <Link to="/Portfolio/Pharagraph/list">게시판</Link>
-      <Link to="/Portfolio/Pharagraph/community">커뮤니티</Link>
+      {/* <Link to="/Portfolio/Pharagraph/community">커뮤니티</Link> */}
       {!isLoggedIn && <Link to="/Portfolio/Pharagraph/login">로그인</Link>}
       {!isLoggedIn && <Link to="/Portfolio/Pharagraph/signup">회원가입</Link>}
       {isLoggedIn && <Link to="/Portfolio/Pharagraph/my">마이페이지</Link>}

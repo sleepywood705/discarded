@@ -19,9 +19,15 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
+    cursor: default;
 
-    & > div {
+    > div {
       width: 100%; aspect-ratio: 1;
+
+      &:nth-child(1) {background-color: #bb2525};
+      &:nth-child(2) {background-color: #186f65};
+      &:nth-child(3) {background-color: #387adf};
+      &:nth-child(4) {background-color: #f4ce14};
     }
 
     &:hover {
@@ -46,5 +52,6 @@
 
   .Time, .Yeartoday {
     font-size: 13px;
+    cursor: default;
   }
 }

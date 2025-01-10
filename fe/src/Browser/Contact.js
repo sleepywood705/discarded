@@ -18,7 +18,7 @@ export function Contact({ 창닫기, contactStyle, onContactClick }) {
       <span>Web Designer</span>
       <p>sleepywood94@naver.com / 010-2715-1253 / 이헌주</p>
       <button type="button" onClick={handleClose}>
-        <i class="bi bi-x-circle-fill"></i>
+        <i className="bi bi-x-circle-fill" />
       </button>
     </div>
   );

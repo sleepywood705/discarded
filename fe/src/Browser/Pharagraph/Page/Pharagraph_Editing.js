@@ -5,21 +5,8 @@ import axios from "axios";
 import { useFormChange } from "../../../Hook/Hook";
 import { useState, useEffect, useCallback } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { MBTI_OPTIONS, INITIAL_FORM_STATE } from "../VARIABLE/VAR"
 
-const MBTI_OPTIONS = [
-  [['E', 'I'], 0],
-  [['S', 'N'], 1],
-  [['T', 'F'], 2],
-  [['J', 'P'], 3]
-];
-
-const INITIAL_FORM_STATE = {
-  book: '',
-  content: '',
-  page: '',
-  music: '',
-  MBTI: ''
-};
 
 export function PharagraphEditingPage({ BOOK, MUSIC }) {
   const [formData, handleChange, setFormData] = useFormChange(INITIAL_FORM_STATE);

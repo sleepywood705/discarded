@@ -41,7 +41,7 @@ export function Desktop() {
 
   const hideContact = () => {
     setContactStyle({ 
-      "top": "-30%", 
+      "top": "-40%", 
       "transform": "translate(-50%) rotate(-90deg)",
     })
   }
@@ -50,7 +50,7 @@ export function Desktop() {
     <div id="Desktop">
       <Ccanvas />
       <Routes>
-        <Route path="/Portfolio/cv/*" element={<Portfolio 창닫기={() => headTo("/Portfolio")} />} />
+        {/* <Route path="/Portfolio/cv/*" element={<Portfolio 창닫기={() => headTo("/Portfolio")} />} /> */}
         <Route path="/Portfolio/stack/*" element={<Stack 창닫기={() => headTo("/Portfolio")} />} />
         <Route path="/Portfolio/addict/*" element={<Addict 창닫기={() => headTo("/Portfolio")} />} />
         <Route path="/Portfolio/playlist/*" element={<PlayList 창닫기={() => headTo("/Portfolio")} />} />
@@ -64,7 +64,7 @@ export function Desktop() {
       </Routes>
 
       <Iconset
-        포트폴리오열기={() => headTo("/Portfolio/cv")}
+        // 포트폴리오열기={() => headTo("/Portfolio/cv")}
         폴더열기={folder.OPEN}
         스택열기={() => headTo("/Portfolio/stack")}
         컨택트열기={handleClickContactIcon}

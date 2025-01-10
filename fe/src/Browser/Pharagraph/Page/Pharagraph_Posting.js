@@ -1,11 +1,11 @@
 import "./Pharagraph_Posting.scss";
+import { MBTI_OPTIONS, INITIAL_FORM_STATE } from "../VARIABLE/VAR"
 import { PharagraphBookSearch } from "../Component/Pharagraph_BookSearch";
 import { PharagraphMusicSearch } from "../Component/Pharagraph_MusicSearch";
 import axios from "axios";
 import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFormChange } from "../../../Hook/Hook";
-import { MBTI_OPTIONS, INITIAL_FORM_STATE } from "../VARIABLE/VAR"
 
 
 export function PharagraphPostingPage({ BOOK, MUSIC }) {

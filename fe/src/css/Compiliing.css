@@ -193,8 +193,8 @@
 }
 #Iconset .Icon .Upper .Piece {
   position: absolute;
-  left: calc(50% - 1px);
-  top: 12px;
+  left: calc(50% - 0.8px);
+  top: 11.6px;
   width: 25px;
   height: 25px;
   border-left: 1px solid #fff;
@@ -1790,7 +1790,6 @@
   height: 40px;
   min-height: 40px;
   border-radius: 2px;
-  border: 1px solid #fff;
   display: grid;
   place-items: center;
 }

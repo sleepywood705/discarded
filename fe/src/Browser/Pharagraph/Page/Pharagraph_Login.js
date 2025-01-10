@@ -1,14 +1,11 @@
 import "./Pharagraph_Login.scss";
+import { BACKEND_URL, ROUTES } from "../VARIABLE/VAR";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "../../../store/store";
 import { useFormChange } from "../../../Hook/Hook";
 
-const ROUTES = {
-  SUCCESS_LOGIN: "/Portfolio/pharagraph/list",
-  SIGNUP: "/Portfolio/Pharagraph/signup"
-};
 
 export function PharagraphLoginPage() {
   const [formData, handleChange] = useFormChange({ username: "", password: "" });
@@ -25,7 +22,7 @@ export function PharagraphLoginPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data: { token, userInfo } } = await axios.post("/Pharagraph/login", formData);
+      const { data: { token, userInfo } } = await axios.post(`${BACKEND_URL}/Pharagraph/login`, formData);
       
       saveUserData(token, userInfo);
       dispatch(login());

@@ -5,8 +5,8 @@ import {
   AddictLiquidProduct,
   AddictSolidProduct,
   AddictGiftProduct
-} from "../Component/Addict_AllProduct";
-import { AddictProductTypeFilters } from "../Component/Addict_ProductTypeFilter";
+} from "../component/Addict_AllProduct";
+import { AddictProductTypeFilters } from "../component/Addict_ProductTypeFilter";
 import { useState } from "react";
 
 

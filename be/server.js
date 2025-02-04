@@ -4,7 +4,7 @@ const cors = require("cors");
 const app = express();
 
 app.use(cors({
-  origin: 'https://sleepywood705.github.io',
+  origin: ['https://sleepywood705.github.io', 'http://localhost:3000'],
   credentials: true
 }));
 app.use(express.json());

@@ -1,6 +1,6 @@
 import "./Pharagraph_BookSearch.scss"
 import axios from "axios";
-import { API_KEY } from "../API/API_KEY";
+import { API_KEY } from "../api/API_KEY";
 import { useState, useEffect, useRef } from "react";
 
 
@@ -90,7 +90,7 @@ export function PharagraphBookSearch({ BOOK, setFormData }) {
           <input 
             type="text" 
             name="query" 
-            placeholder="서명 또는 작가명을 입력해 주세요."
+            // placeholder="서명 또는 작가명을 입력해 주세요."
             autoComplete="off"
             ref={inputRef}
           />

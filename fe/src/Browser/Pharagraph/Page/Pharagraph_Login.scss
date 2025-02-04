@@ -26,10 +26,6 @@
       width: 280px;
       border: 1px solid #555;
       
-      &:focus {
-        border: 1px solid #fff;
-      }
-
       &::placeholder {
         color: #bbb;
         font-size: 14px;
@@ -37,13 +33,9 @@
     }
 
     > button {
-      color: #000;
-      background-color: #fff;
-
-      &:focus { 
-        border: 1px solid #fff;
-        background-color: cornflowerblue;
-      }
+      padding: 0;
+      color: #fff;
+      background-color: #222;
     }
   }
 
@@ -56,14 +48,8 @@
     place-items: center;
 
     &:hover {
-      color: #000;
-      background-color: #fff;
-    }
-
-    &:focus { 
-      border: 1px solid #fff;
-      outline: none;
-      background-color: cornflowerblue;
+      color: #fff;
+      background-color: #222;
     }
   }
 }

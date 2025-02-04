@@ -1,5 +1,3 @@
-export const BACKEND_URL = "https://portfolio-447415.du.r.appspot.com";
-
 export const ROUTES = {
   SUCCESS_LOGIN: "/Portfolio/pharagraph/list",
   SIGNUP: "/Portfolio/Pharagraph/signup"

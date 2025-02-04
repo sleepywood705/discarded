@@ -1,7 +1,7 @@
 import "./Pharagraph_Posting.scss";
-import { MBTI_OPTIONS, INITIAL_FORM_STATE } from "../VARIABLE/VAR"
-import { PharagraphBookSearch } from "../Component/Pharagraph_BookSearch";
-import { PharagraphMusicSearch } from "../Component/Pharagraph_MusicSearch";
+import { MBTI_OPTIONS, INITIAL_FORM_STATE } from "../variable/VAR"
+import { PharagraphBookSearch } from "../component/Pharagraph_BookSearch";
+import { PharagraphMusicSearch } from "../component/Pharagraph_MusicSearch";
 import axios from "axios";
 import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
@@ -18,7 +18,7 @@ export function PharagraphPostingPage({ BOOK, MUSIC }) {
   const handleClick = {
     bookSearch: () => BOOK.OPEN(),
     musicSearch: () => MUSIC.OPEN(),
-    dontKnow: () => setFormData(prev => ({ ...prev, page: "알수없음" }))
+    dontKnow: () => setFormData(prev => ({ ...prev, page: "모름" }))
   };
 
   const selectMBTI = useCallback((index, value) => {
@@ -102,13 +102,15 @@ export function PharagraphPostingPage({ BOOK, MUSIC }) {
             onBlur={() => setIsFocused(false)}
             autoComplete="off"
           />
-          <button 
-            type="button" 
-            className={isFocused ? "onfocus" : ""} 
-            onClick={handleClick.dontKnow}
-          >
-            알수없음
-          </button>
+          {isFocused && (
+            <button 
+              type="button" 
+              className="onfocus" 
+              onClick={handleClick.dontKnow}
+            >
+              모름
+            </button>
+          )}
         </div>
         <input
           type="text"

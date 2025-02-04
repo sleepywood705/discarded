@@ -22,13 +22,12 @@
 
     > div {
       width: 100%;
+      gap: 8px;
       display: flex;
       align-items: center;
 
       > label {
         width: 100px;
-        color: #fff;
-        font-size: 14px;
         gap: 4px;
         display: flex;
         align-items: center;
@@ -48,21 +47,11 @@
           color: #bbb;
           font-size: 14px;
         }
-
-        &:focus { border: 1px solid #fff; }
       }
 
       > button.duplicationCheck {
         padding: 10px;
-        margin-left: 10px;
-        // border: 1px solid #ddd;
-        background-color: #fff;
-
-        &:focus { 
-          border: 1px solid #fff;
-          outline: none;
-          background-color: cornflowerblue;
-        }
+        border: 1px solid #000;
       }
       
       > p { 
@@ -76,13 +65,15 @@
           &:not(:nth-child(1)){ margin-left: -1px; }
         }
         button {
+          position: relative;
           aspect-ratio: 1;
-          color: #fff;
-          border: 1px solid #fff;
+          color: #bbb;
+          border: 1px solid #bbb;
 
           &.clicked {
+            z-index: 999;
             color: #000;
-            background-color: #fff;
+            border: 1px solid #000;
           }
 
           &:not(:nth-child(1)){ margin-left: -1px; }
@@ -92,13 +83,11 @@
     }
 
     > button {
-      color: #000;
-      background-color: #fff;
+      color: #fff;
+      background-color: #000;
 
       &:focus { 
         border: 1px solid #fff;
-        outline: none;
-        background-color: cornflowerblue;
       }
     }
   }

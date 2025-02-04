@@ -23,6 +23,7 @@ export function PharagraphHeader() {
       navigate("/Portfolio/pharagraph/login");
       alert(res.data.message);
     } catch (error) {
+      alert("로그아웃 중 오류가 발생했습니다.")
       console.error("로그아웃 중 오류 발생:", error);
     }
   };

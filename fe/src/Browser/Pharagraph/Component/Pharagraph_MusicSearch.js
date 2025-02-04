@@ -86,7 +86,7 @@ export function PharagraphMusicSearch({ MUSIC, setFormData }) {
           <input 
             type="text" 
             name="query" 
-            placeholder="곡명, 아티스트명 또는 앨범명을 입력해 주세요."
+            // placeholder="곡명, 아티스트명 또는 앨범명을 입력해 주세요."
             autoComplete="off"
             ref={inputRef}
           />

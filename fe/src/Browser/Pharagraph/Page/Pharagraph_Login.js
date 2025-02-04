@@ -1,5 +1,5 @@
 import "./Pharagraph_Login.scss";
-import { BACKEND_URL, ROUTES } from "../VARIABLE/VAR";
+import { ROUTES } from "../variable/VAR";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -22,7 +22,7 @@ export function PharagraphLoginPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data: { token, userInfo } } = await axios.post(`${BACKEND_URL}/Pharagraph/login`, formData);
+      const { data: { token, userInfo } } = await axios.post("/Pharagraph/login", formData);
       
       saveUserData(token, userInfo);
       dispatch(login());

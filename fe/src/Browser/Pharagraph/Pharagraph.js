@@ -1,14 +1,14 @@
 import "./Pharagraph.scss";
 import { Window } from "../../Interface/Window";
-import { PharagraphHeader } from "./Component/Pharagraph_Header";
-import { PharagraphHomePage } from "./Page/Pharagraph_Home";
-import { PharagraphPostingPage } from "./Page/Pharagraph_Posting";
-import { PharagraphEditingPage } from "./Page/Pharagraph_Editing";
-import { PharagraphListPage } from "./Page/Pharagraph_List";
-import { PharagraphReplyPage } from "./Page/Pharagraph_Reply";
-import { PharagraphLoginPage } from "./Page/Pharagraph_Login";
-import { PharagraphSignupPage } from "./Page/Pharagraph_Signup";
-import { PharagraphMyPage } from "./Page/Pharagraph_My";
+import { PharagraphHeader } from "./component/Pharagraph_Header";
+import { PharagraphHomePage } from "./page/Pharagraph_Home";
+import { PharagraphPostingPage } from "./page/Pharagraph_Posting";
+import { PharagraphEditingPage } from "./page/Pharagraph_Editing";
+import { PharagraphListPage } from "./page/Pharagraph_List";
+import { PharagraphReplyPage } from "./page/Pharagraph_Reply";
+import { PharagraphLoginPage } from "./page/Pharagraph_Login";
+import { PharagraphSignupPage } from "./page/Pharagraph_Signup";
+import { PharagraphMyPage } from "./page/Pharagraph_My";
 import { Routes, Route } from "react-router-dom";
 import { useWindowClose, useStateChange } from "../../Hook/Hook";
 

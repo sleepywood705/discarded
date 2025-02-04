@@ -65,7 +65,7 @@ export function Folder({
               <div className="Upper">
                 <div className="Inner">Dev</div>
               </div>
-              <div className="Lower">파라그래프</div>
+              <div className="Lower">개발 중</div>
             </div>
           )}
 
@@ -105,14 +105,14 @@ export function Folder({
             </div>
           )}
 
-          {state.showPractice && (
+          {/* {state.showPractice && (
             <div className="Icon" onClick={지셉열기}>
               <div className="Upper">
                 <div className="Inner">Prac</div>
               </div>
               <div className="Lower">GSAP 연습</div>
             </div>
-          )}
+          )} */}
 
           {state.showDocument && (
             <div className="Icon" onClick={레퍼런스열기}>

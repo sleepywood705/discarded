@@ -1,7 +1,7 @@
 import "./PlayList.scss";
 import { Window } from "../../Interface/Window";
 import axios from "axios";
-import { TRACK_DATA } from "./Data/Track_Data";
+import { TRACK_DATA } from "./data/Track_Data";
 import { useState, useEffect, useRef } from "react";
 
 

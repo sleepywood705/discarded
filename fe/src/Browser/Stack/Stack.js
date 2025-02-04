@@ -1,7 +1,7 @@
 import "./Stack.scss"
 import { Window } from "../../Interface/Window";
-import { StackFilters } from "./Component/Stack_Filters";
-import { StackContainer } from "./Component/Stack_Container";
+import { StackFilters } from "./component/Stack_Filters";
+import { StackContainer } from "./component/Stack_Container";
 import { useState } from "react";
 import { useWindowClose } from "../../Hook/Hook";
 

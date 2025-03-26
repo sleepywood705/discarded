@@ -20,7 +20,7 @@ export function PharagraphHeader() {
       localStorage.removeItem("nickname");
       localStorage.removeItem("email");
       dispatch(logout());
-      navigate("/Portfolio/pharagraph/login");
+      navigate("/discarded/pharagraph/login");
       alert(res.data.message);
     } catch (error) {
       alert("로그아웃 중 오류가 발생했습니다.")
@@ -30,13 +30,13 @@ export function PharagraphHeader() {
 
   return (
     <header>
-      <Link to="/Portfolio/Pharagraph/list">Pharagraph</Link>
-      <Link to="/Portfolio/Pharagraph/">작성</Link>
-      <Link to="/Portfolio/Pharagraph/list">게시판</Link>
-      {/* <Link to="/Portfolio/Pharagraph/community">커뮤니티</Link> */}
-      {!isLoggedIn && <Link to="/Portfolio/Pharagraph/login">로그인</Link>}
-      {!isLoggedIn && <Link to="/Portfolio/Pharagraph/signup">회원가입</Link>}
-      {isLoggedIn && <Link to="/Portfolio/Pharagraph/my">마이페이지</Link>}
+      <Link to="/discarded/Pharagraph/list">Pharagraph</Link>
+      <Link to="/discarded/Pharagraph/">작성</Link>
+      <Link to="/discarded/Pharagraph/list">게시판</Link>
+      {/* <Link to="/discarded/Pharagraph/community">커뮤니티</Link> */}
+      {!isLoggedIn && <Link to="/discarded/Pharagraph/login">로그인</Link>}
+      {!isLoggedIn && <Link to="/discarded/Pharagraph/signup">회원가입</Link>}
+      {isLoggedIn && <Link to="/discarded/Pharagraph/my">마이페이지</Link>}
       {isLoggedIn && <button onClick={handleLogout}>로그아웃</button>}
     </header>
   );

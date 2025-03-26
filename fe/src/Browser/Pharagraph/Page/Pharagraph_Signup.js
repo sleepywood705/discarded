@@ -128,7 +128,7 @@ export function PharagraphSignupPage() {
 
       const response = await axios.post('/Pharagraph/signup', signupData);
       alert(response.data.message);
-      navigate('/Portfolio/pharagraph/login');
+      navigate('/discarded/pharagraph/login');
     } catch (error) {
       alert(error.response?.data?.message || "회원가입 중 오류가 발생했습니다.");
     }

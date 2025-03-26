@@ -59,7 +59,7 @@ export function PharagraphEditingPage({ BOOK, MUSIC }) {
 
     if (!token) {
       alert("로그인이 필요한 서비스입니다. 로그인 페이지로 이동합니다.");
-      navigate('/Portfolio/Pharagraph/login');
+      navigate('/discarded/Pharagraph/login');
       return;
     }
 
@@ -69,7 +69,7 @@ export function PharagraphEditingPage({ BOOK, MUSIC }) {
         formData, 
         { headers: { Authorization: `Bearer ${token}` }}
       );
-      navigate('/Portfolio/Pharagraph/list');
+      navigate('/discarded/Pharagraph/list');
     } catch (error) {
       console.error('게시글 수정 실패:', error);
       alert('게시글 수정에 실패했습니다.');
@@ -82,7 +82,7 @@ export function PharagraphEditingPage({ BOOK, MUSIC }) {
     }
     setFormData(INITIAL_FORM_STATE);
     setSelectedMBTI(Array(4).fill(''));
-    navigate('/Portfolio/Pharagraph/list');
+    navigate('/discarded/Pharagraph/list');
   }, [formData.content, setFormData]);
 
   return (

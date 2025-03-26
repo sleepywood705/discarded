@@ -1,6 +1,6 @@
 export const ROUTES = {
-  SUCCESS_LOGIN: "/Portfolio/pharagraph/list",
-  SIGNUP: "/Portfolio/Pharagraph/signup"
+  SUCCESS_LOGIN: "/discarded/pharagraph/list",
+  SIGNUP: "/discarded/Pharagraph/signup"
 };
 
 export const MBTI_OPTIONS = [

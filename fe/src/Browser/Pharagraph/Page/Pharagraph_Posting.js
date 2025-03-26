@@ -36,7 +36,7 @@ export function PharagraphPostingPage({ BOOK, MUSIC }) {
     
     if (!token) {
       alert("로그인이 필요한 서비스입니다. 로그인 페이지로 이동합니다.");
-      navigate('/Portfolio/Pharagraph/login');
+      navigate('/discarded/Pharagraph/login');
       return;
     }
 
@@ -51,7 +51,7 @@ export function PharagraphPostingPage({ BOOK, MUSIC }) {
         headers: { Authorization: `Bearer ${token}` }
       });
       
-      navigate('/Portfolio/Pharagraph/list');
+      navigate('/discarded/Pharagraph/list');
     } catch (error) {
       console.error('게시글 등록 실패:', error);
       alert('게시글 등록에 실패했습니다.');

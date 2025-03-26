@@ -1,4 +1,4 @@
-import "./Portfolio.scss"
+import "./discarded.scss"
 import { Window } from "../../Interface/Window";
 import { useWindowClose } from "../../Hook/Hook";
 

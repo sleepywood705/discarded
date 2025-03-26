@@ -6,7 +6,7 @@ export function useWindowClose(창닫기) {
   const navigate = useNavigate();
   
   return () => {
-    navigate("/Portfolio/");
+    navigate("/discarded/");
     창닫기();
   };
 }
